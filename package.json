@@ -1,0 +1,15 @@
+{
+  "name": "standard-ranklist",
+  "version": "1.0.0",
+  "description": "Standard Ranklist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.sdutacm.cn/ojsc/standard-ranklist.git"
+  },
+  "author": "",
+  "license": "Apache-2.0"
+}
