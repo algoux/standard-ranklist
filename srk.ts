@@ -60,7 +60,7 @@ type ColorRGBA = [number, number, number, number];
 /** General color format. */
 type Color = ColorHEX | ColorRGBA;
 
-/** Theme color. If only one color proived, the second color will inherit from the first one. */
+/** Theme color. If only one color provided, the second color will inherit from the first one. */
 type ThemeColor = Color | DualThemeItem<Color>;
 
 interface Style {
@@ -319,6 +319,35 @@ interface RanklistRow {
   statuses: RankProblemStatus[];
 }
 
+interface SorterBase {
+  /** Sorter algorithm. */
+  algorithm: string;
+
+  /** Config for this sorter. */
+  config: Record<string, any>;
+}
+
+interface SorterICPC extends SorterBase {
+  algorithm: 'ICPC';
+
+  config: {
+    /**
+     * Penalty time per extra tries before the first accepted solution.
+     * @defaultValue [20, 'min']
+     */
+    penalty?: TimeDuration;
+
+    /**
+     * No penalty solution result list.
+     * @defaultValue ['FB', 'AC', '?', 'CE', 'UKE', null]
+     */
+    noPenaltyResults?: SolutionResultFull[];
+  };
+}
+
+/** Sorter type. */
+type Sorter = SorterICPC | SorterBase;
+
 interface Ranklist {
   /** Contest info. */
   contest: Contest;
@@ -331,6 +360,9 @@ interface Ranklist {
 
   /** Ranklist data. */
   rows: RanklistRow[];
+
+  /** Sorter. If no sorter specified, any extra auto-sort feature will be disabled by renderer. */
+  sorter?: Sorter;
 
   /** Current time. Used for real-time ranklist. */
   _now?: DatetimeISOString;
@@ -419,4 +451,8 @@ const ranklist: Ranklist = {
       ],
     },
   ],
+  sorter: {
+    algorithm: 'ICPC',
+    config: {},
+  },
 };

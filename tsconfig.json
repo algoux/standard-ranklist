@@ -1,18 +1,17 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "inlineSourceMap": true,
-      "noImplicitThis": true,
-      "noUnusedLocals": true,
-      "strictNullChecks": true,
-      "stripInternal": true,
-      "pretty": true,
-      "declaration": true,
-      "lib": ["es2017", "dom"]
-    },
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "inlineSourceMap": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "pretty": true,
+    "declaration": true,
+    "lib": ["es2017", "dom"]
   }
-  
+}
