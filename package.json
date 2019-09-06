@@ -11,5 +11,12 @@
     "url": "https://git.sdutacm.cn/ojsc/standard-ranklist.git"
   },
   "author": "",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ts-node": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.4",
+    "typescript": "^3.6.2"
+  }
 }

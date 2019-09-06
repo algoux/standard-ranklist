@@ -3,6 +3,11 @@ Copyright (c) OJ Standards Committee. All rights reserved.
 
 ***************************************************************************** */
 
+type Type = 'standard'
+type Version = '0.1.0'
+
+//#region common
+
 /**
  * ISO8601 String.
  * @example
@@ -77,7 +82,9 @@ interface Style {
   backgroundColor?: ThemeColor;
 }
 
+//#endregion common
 
+//#region ranklist
 
 interface ExternalUser {
   /** Username. */
@@ -178,12 +185,12 @@ type SolutionResultLite = 'FB' | 'AC' | 'RJ' | '?' | null;
  * Solution result full preset.
  * 'WA' means "Wrong Answer".
  * 'PE' means "Presentation Error".
- * 'TLE' meas "Time Limit Exceeded".
+ * 'TLE' means "Time Limit Exceeded".
  * 'MLE' means "Memory Limit Exceeded".
  * 'OLE' means "Output Limit Exceeded".
  * 'RTE' means "Runtime Error".
  * 'CE' means "Compilation error".
- * 'UKE' meas "Unknown Error".
+ * 'UKE' means "Unknown Error".
  */
 type SolutionResultFull = SolutionResultLite | 'WA' | 'PE' | 'TLE' | 'MLE' | 'OLE' | 'RTE' | 'CE' | 'UKE';
 
@@ -233,6 +240,9 @@ interface Contest {
   link?: string;
 }
 
+/** Rank series segment style preset. The style value will be determined by renderer. */
+type RankSeriesSegmentStylePreset = 'gold' | 'silver' | 'bronze' | 'iron'
+
 interface RankSeriesSegment {
   /**
    * Segment title.
@@ -241,10 +251,16 @@ interface RankSeriesSegment {
   title?: string;
 
   /**
+   * Maximum user count in this segment. User's segment will be calculated automatically based on rank.
+   * @defaultValue Use rank's segmentIndex property instead and it will be treated as 0 if auto-calculation triggered.
+   */
+  count?: number;
+
+  /**
    * Custom style on ranklist table body.
    * @defaultValue Determined by renderer.
    */
-  style?: Style;
+  style?: Style | RankSeriesSegmentStylePreset;
 }
 
 interface RankSeries {
@@ -261,7 +277,7 @@ interface RankSeries {
   segments?: RankSeriesSegment[];
 }
 
-/** Rank value. If the user is unofficial and rank value equals null, it will be rendered as unofficial mark such as '*'. */
+/** Rank value initially. If the user is unofficial and rank value equals null, it will be rendered as unofficial mark such as '*'. */
 type RankValue = number | null;
 
 interface RankValueWithProperties {
@@ -269,12 +285,13 @@ interface RankValueWithProperties {
   rank: RankValue;
 
   /**
-   * Series segment index which this rank belongs to. Null means this rank does not belong to any segment.
+   * Series segment index which this rank belongs to initially. Null means this rank does not belong to any segment. Undefined means it will be calculated automatically (only if the segment's count property exists).
    * @defaultValue null
    */
   segmentIndex?: number | null;
 }
 
+/** Rank property. It can be overwritten by auto-sort feature. */
 type RankProperty = RankValue | RankValueWithProperties;
 
 interface RankScore {
@@ -349,6 +366,12 @@ interface SorterICPC extends SorterBase {
 type Sorter = SorterICPC | SorterBase;
 
 interface Ranklist {
+  /** Ranklist type. */
+  type: Type | string;
+
+  /** Ranklist version for current type. */
+  version: Version | string;
+
   /** Contest info. */
   contest: Contest;
 
@@ -368,10 +391,13 @@ interface Ranklist {
   _now?: DatetimeISOString;
 }
 
+//#endregion ranklist
 
-/** Demo */
+//#region demo
 
 const ranklist: Ranklist = {
+  type: 'standard',
+  version: '0.1.0',
   contest: {
     title: 'ACM ICPC World Finals 2018',
     startAt: '2018-04-19T09:51:00+08:00',
@@ -411,24 +437,25 @@ const ranklist: Ranklist = {
       segments: [
         {
           title: 'Gold Medalist',
+          count: 4,
+          style: 'gold',
         },
         {
           title: 'Silver Medalist',
+          count: 4,
+          style: 'silver',
         },
         {
           title: 'Bronze Medalist',
+          count: 4,
+          style: 'bronze',
         },
       ],
     }
   ],
   rows: [
     {
-      ranks: [
-        {
-          rank: 1,
-          segmentIndex: 1,
-        },
-      ],
+      ranks: [1],
       user: {
         name: 'Moscow State University',
         avatar: '',
@@ -456,3 +483,5 @@ const ranklist: Ranklist = {
     config: {},
   },
 };
+
+//#endregion demo
