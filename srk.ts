@@ -3,8 +3,8 @@ Copyright (c) OJ Standards Committee. All rights reserved.
 
 ***************************************************************************** */
 
-type Type = 'standard'
-type Version = '0.1.0'
+type Type = 'standard';
+type Version = '0.1.0';
 
 //#region common
 
@@ -18,7 +18,7 @@ type Version = '0.1.0'
 type DatetimeISOString = string;
 
 /** Time unit. */
-type TimeUnit = 'ms' | 's' | 'min' | 'h' | 'd'
+type TimeUnit = 'ms' | 's' | 'min' | 'h' | 'd';
 
 /**
  * Time duration.
