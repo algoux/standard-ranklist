@@ -389,6 +389,4 @@ namespace srk {
   //#endregion ranklist
 }
 
-//#region demo
-
 export default srk;
