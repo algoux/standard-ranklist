@@ -277,12 +277,9 @@ interface RankSeries {
   segments?: RankSeriesSegment[];
 }
 
-/** Rank value initially. If the user is unofficial and rank value equals null, it will be rendered as unofficial mark such as '*'. */
-type RankValue = number | null;
-
-interface RankValueWithProperties {
-  /** Rank value. */
-  rank: RankValue;
+interface RankValue {
+  /** Rank value initially. If the user is unofficial and rank value equals null, it will be rendered as unofficial mark such as '*'. */
+  rank: number | null;
 
   /**
    * Series segment index which this rank belongs to initially. Null means this rank does not belong to any segment. Undefined means it will be calculated automatically (only if the segment's count property exists).
@@ -290,9 +287,6 @@ interface RankValueWithProperties {
    */
   segmentIndex?: number | null;
 }
-
-/** Rank property. It can be overwritten by auto-sort feature. */
-type RankProperty = RankValue | RankValueWithProperties;
 
 interface RankScore {
   /** The total score value. */
@@ -324,7 +318,7 @@ interface RankProblemStatus {
 
 interface RanklistRow {
   /** The list of rank value calculated. Each one corresponding to a rank series. */
-  ranks: RankProperty[];
+  ranks: RankValue[];
 
   /** User info. */
   user: User;
@@ -455,7 +449,12 @@ const ranklist: Ranklist = {
   ],
   rows: [
     {
-      ranks: [1],
+      ranks: [
+        {
+          rank: 1,
+          segmentIndex: 0,
+        },
+      ],
       user: {
         name: 'Moscow State University',
         avatar: '',
