@@ -1,4 +1,4 @@
-import srk from '.';
+import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'standard',
