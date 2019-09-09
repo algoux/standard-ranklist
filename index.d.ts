@@ -59,7 +59,7 @@ export type ColorRGBA = [number, number, number, number];
 export type Color = ColorHEX | ColorRGBA;
 
 /** Theme color. If only one color (for light theme) provided, the second color (for dark theme) will inherit from the first one. */
-export type ThemeColor = Color | [Color, Color];
+export type ThemeColor = [Color] | [Color, Color];
 
 export interface Style {
   /**

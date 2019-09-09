@@ -20,7 +20,7 @@ const ranklist: srk.Ranklist = {
         submitted: 268,
       },
       style: {
-        backgroundColor: '#58a2d1',
+        backgroundColor: ['#58a2d1'],
       },
     },
     {
@@ -32,7 +32,7 @@ const ranklist: srk.Ranklist = {
         submitted: 265,
       },
       style: {
-        backgroundColor: '#fc6d3e',
+        backgroundColor: ['#fc6d3e'],
       },
     },
   ],
