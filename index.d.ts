@@ -194,7 +194,10 @@ export interface Solution {
   /** Result. */
   result: SolutionResultFull | SolutionResultCustom;
 
-  /** The score. */
+  /**
+   * The score.
+   * @defaultValue Ignored by renderer.
+   */
   score?: number;
 
   /** Submission time. */
@@ -303,7 +306,7 @@ export interface RankProblemStatus {
   tries?: number;
 
   /**
-   * Solutions for this problem.
+   * Solutions for this problem (sorted by submission time in ascending order).
    * @defaultValue []
    */
   solutions?: Solution[];
