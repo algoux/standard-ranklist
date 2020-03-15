@@ -3,8 +3,8 @@ Copyright (c) OJ Standards Committee. All rights reserved.
 
 ***************************************************************************** */
 
-export type Type = 'standard';
-export type Version = '0.1.0';
+export type Type = 'general';
+export type Version = '0.2.0';
 
 //#region common
 
@@ -32,6 +32,16 @@ export type TimeDuration = [number, TimeUnit];
 /** URL. */
 export type Link = string;
 
+/**
+ * Link with title.
+ * @example
+ * { link: 'https://icpc.baylor.edu/', title: 'ICPC Home Page' }
+ */
+export interface LinkWithTitle {
+  link: Link;
+  title: string;
+}
+
 /** Base64 string. */
 export type Base64 = string;
 
@@ -39,7 +49,10 @@ export type Base64 = string;
 export type Image = Link | Base64;
 
 /** Image with link. */
-export type ImageWithLink = [Image, Link];
+export interface ImageWithLink {
+  image: Image;
+  link: Link;
+}
 
 /**
  * Color HEX.
@@ -49,17 +62,27 @@ export type ImageWithLink = [Image, Link];
 export type ColorHEX = string;
 
 /**
+ * Color RGB.
+ * @example
+ * 'rgba(255, 255, 255)'
+ */
+export type ColorRGB = string;
+
+/**
  * Color RGBA.
  * @example
- * [0, 0, 0, 0.5]
+ * 'rgba(255, 255, 255, 0.75)'
  */
-export type ColorRGBA = [number, number, number, number];
+export type ColorRGBA = string;
 
 /** General color format. */
-export type Color = ColorHEX | ColorRGBA;
+export type Color = ColorHEX | ColorRGB | ColorRGBA;
 
-/** Theme color. If only one color (for light theme) provided, the second color (for dark theme) will inherit from the first one. */
-export type ThemeColor = [Color] | [Color, Color];
+/** Theme color. If only one color (for light theme) provided, the color for dark theme will be same as the light. */
+export type ThemeColor = Color | {
+  light: Color;
+  dark: Color;
+};
 
 export interface Style {
   /**
@@ -84,7 +107,13 @@ export interface ExternalUser {
   name: string;
 
   /**
-   * The link to view the user.
+   * User avatar.
+   * @defaultValue Ignored by renderer.
+   */
+  avatar?: Image;
+
+  /**
+   * The link to view user.
    * @defaultValue Ignored by renderer.
    */
   link?: string;
@@ -204,7 +233,7 @@ export interface Solution {
   time: TimeDuration;
 
   /**
-   * The link to view the solution.
+   * The link to view solution.
    * @defaultValue Ignored by renderer.
    */
   link?: Link;
@@ -230,10 +259,16 @@ export interface Contest {
   banner?: Image | ImageWithLink;
 
   /**
-   * The link to view the original contest.
+   * The link to view original contest.
    * @defaultValue Ignored by renderer.
    */
-  link?: string;
+  link?: Link;
+
+  /**
+   * Reference links of contest.
+   * @defaultValue Ignored by renderer.
+   */
+  refLinks?: LinkWithTitle[];
 }
 
 /** Rank series segment style preset. The style value will be determined by renderer. */
@@ -278,7 +313,7 @@ export interface RankValue {
   rank: number | null;
 
   /**
-   * Series segment index which this rank belongs to initially. Null means this rank does not belong to any segment. Undefined means it will be calculated automatically (only if the segment's count property exists).
+   * Series segment index which this rank belongs to initially. `null` means this rank does not belong to any segment. `undefined` means it will be calculated automatically (only if the segment's count property exists).
    * @defaultValue null
    */
   segmentIndex?: number | null;
@@ -307,6 +342,7 @@ export interface RankProblemStatus {
 
   /**
    * Solutions for this problem (sorted by submission time in ascending order).
+   * If no solutions provided, auto-sort feature will be disabled.
    * @defaultValue []
    */
   solutions?: Solution[];

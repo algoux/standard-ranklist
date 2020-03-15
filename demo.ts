@@ -1,8 +1,8 @@
 import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
-  type: 'standard',
-  version: '0.1.0',
+  type: 'general',
+  version: '0.2.0',
   contest: {
     title: 'ACM ICPC World Finals 2018',
     startAt: '2018-04-19T09:51:00+08:00',
@@ -20,7 +20,7 @@ const ranklist: srk.Ranklist = {
         submitted: 268,
       },
       style: {
-        backgroundColor: ['#58a2d1'],
+        backgroundColor: '#58a2d1',
       },
     },
     {
@@ -32,7 +32,7 @@ const ranklist: srk.Ranklist = {
         submitted: 265,
       },
       style: {
-        backgroundColor: ['#fc6d3e'],
+        backgroundColor: '#fc6d3e',
       },
     },
   ],
