@@ -4,7 +4,7 @@ Copyright (c) OJ Standards Committee. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.2.0';
+export type Version = '0.2.1';
 
 //#region common
 
@@ -135,7 +135,7 @@ export interface User {
   /**
    * User avatar.
    * @defaultValue Ignored by renderer.
-  */
+   */
   avatar?: Image;
 
   /**
@@ -149,6 +149,12 @@ export interface User {
    * @defaultValue []
    */
   teamMembers?: ExternalUser[];
+
+  /**
+   * Marker for this user.
+   * @defaultValue Ignored by renderer.
+   */
+  marker?: Marker['id'];
 }
 
 export interface ProblemStatistics {
@@ -272,7 +278,7 @@ export interface Contest {
 }
 
 /** Rank series segment style preset. The style value will be determined by renderer. */
-export type RankSeriesSegmentStylePreset = 'gold' | 'silver' | 'bronze' | 'iron'
+export type RankSeriesSegmentStylePreset = 'gold' | 'silver' | 'bronze' | 'iron';
 
 export interface RankSeriesSegment {
   /**
@@ -362,6 +368,21 @@ export interface RanklistRow {
   statuses: RankProblemStatus[];
 }
 
+/** Marker style preset. The style value will be determined by renderer. */
+export type MarkerStylePreset = 'red' | 'yellow' | 'green' | 'blue' | 'purple';
+
+/** Marker to mark the specified user. */
+export interface Marker {
+  /** Marker id. */
+  id: string;
+
+  /** Marker label to display. */
+  label: string;
+
+  /** Custom style for marker. */
+  style: Style | MarkerStylePreset;
+}
+
 export interface SorterBase {
 }
 
@@ -404,6 +425,12 @@ export interface Ranklist {
 
   /** Ranklist data. */
   rows: RanklistRow[];
+
+  /**
+   * Available markers.
+   * @defaultValue []
+   */
+  markers?: Marker[];
 
   /** Sorter. If no sorter specified, any extra auto-sort feature will be disabled by renderer. */
   sorter?: Sorter;

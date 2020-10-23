@@ -2,7 +2,7 @@ import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.2.0',
+  version: '0.2.1',
   contest: {
     title: 'ACM ICPC World Finals 2018',
     startAt: '2018-04-19T09:51:00+08:00',
