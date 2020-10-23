@@ -151,10 +151,10 @@ export interface User {
   teamMembers?: ExternalUser[];
 
   /**
-   * Marker for this user.
+   * Marker id for this user.
    * @defaultValue Ignored by renderer.
    */
-  marker?: Marker['id'];
+  marker?: string;
 }
 
 export interface ProblemStatistics {
