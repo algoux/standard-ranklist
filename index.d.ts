@@ -369,7 +369,7 @@ export interface RanklistRow {
 }
 
 /** Marker style preset. The style value will be determined by renderer. */
-export type MarkerStylePreset = 'red' | 'yellow' | 'green' | 'blue' | 'purple';
+export type MarkerStylePreset = 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink';
 
 /** Marker to mark the specified user. */
 export interface Marker {
