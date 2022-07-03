@@ -1,5 +1,5 @@
 /*! *****************************************************************************
-Copyright (c) OJ Standards Committee. All rights reserved. 
+Copyright (c) AlgoUX. All rights reserved. 
 
 ***************************************************************************** */
 

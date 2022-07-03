@@ -1,22 +1,23 @@
 {
-  "name": "standard-ranklist",
+  "name": "@algoux/standard-ranklist",
   "version": "0.2.1",
   "description": "Standard Ranklist",
-  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.sdutacm.cn/ojsc/standard-ranklist.git"
+    "url": "https://github.com/algoux/standard-ranklist"
   },
-  "author": "",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "ts-node": "^8.3.0"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
+  "author": "bLue",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^12.7.4",
+    "ts-node": "^8.3.0",
     "typescript": "3.8.3"
   }
 }
