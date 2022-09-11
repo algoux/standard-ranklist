@@ -13,4 +13,4 @@ Version: `0.2.1`
 
 ## Resources
 
-- [Standard Ranklist Renderer](https://github.com/algoux/standard-ranklist-renderer): a web renderer for srk (used in 2020 CCPC official ranklist page)
+- [Standard Ranklist Renderer Component](https://github.com/algoux/standard-ranklist-renderer-component): a modern web renderer component for srk (used in many CCPC official ranklist pages and [RankLand](https://rl.algoux.org))

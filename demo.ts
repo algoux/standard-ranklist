@@ -5,7 +5,7 @@ const ranklist: srk.Ranklist = {
   version: '0.2.1',
   contest: {
     title: 'ACM ICPC World Finals 2018',
-    startAt: '2018-04-19T09:51:00+08:00',
+    startAt: '2018-04-19T17:00:00+08:00',
     duration: [5, 'h'],
     frozenDuration: [1, 'h'],
     link: 'https://icpc.baylor.edu/scoreboard/',
