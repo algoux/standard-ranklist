@@ -1,5 +1,5 @@
 /*! *****************************************************************************
-Copyright (c) AlgoUX. All rights reserved. 
+Copyright (c) algoUX. All rights reserved. 
 
 ***************************************************************************** */
 
@@ -64,7 +64,7 @@ export type ColorHEX = string;
 /**
  * Color RGB.
  * @example
- * 'rgba(255, 255, 255)'
+ * 'rgb(255, 255, 255)'
  */
 export type ColorRGB = string;
 
