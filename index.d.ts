@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.2.1';
+export type Version = '0.2.2';
 
 //#region common
 
@@ -98,13 +98,30 @@ export interface Style {
   backgroundColor?: ThemeColor;
 }
 
+/**
+ * i18n string set.
+ * @example
+ * { "en_US": 'English', "zh_CN": '中文', fallback: 'English' }
+ */
+export type I18NStringSet = {
+  /** The fallback string if renderer cannot determine the language to use. */
+  fallback: string;
+  /** The key is the IETF BCP 47 language tag, and the value is the string for this language tag. */
+  [key: string]: string;
+};
+
+/**
+ * Text (i18n supported).
+ */
+export type Text = string | I18NStringSet;
+
 //#endregion common
 
 //#region ranklist
 
 export interface ExternalUser {
   /** Username. */
-  name: string;
+  name: Text;
 
   /**
    * User avatar.
@@ -124,7 +141,7 @@ export interface User {
   id?: number | string;
 
   /** Username. */
-  name: string;
+  name: Text;
 
   /**
    * Determines whether the user is official. If it's false, the user's rank will not be calculated in ranklist.
@@ -142,7 +159,7 @@ export interface User {
    * Organization.
    * @defaultValue Ignored by renderer.
    */
-  organization?: string;
+  organization?: Text;
 
   /**
    * Team members.
@@ -170,7 +187,7 @@ export interface Problem {
    * Problem title.
    * @defaultValue Ignored by renderer.
    */
-  title?: string;
+  title?: Text;
 
   /**
    * Specifies an alias for problem.
@@ -247,7 +264,7 @@ export interface Solution {
 
 export interface Contest {
   /** Contest title. */
-  title: string;
+  title: Text;
 
   /** Start time. */
   startAt: DatetimeISOString;
@@ -377,7 +394,7 @@ export interface Marker {
   id: string;
 
   /** Marker label to display. */
-  label: string;
+  label: Text;
 
   /** Custom style for marker. */
   style: Style | MarkerStylePreset;
