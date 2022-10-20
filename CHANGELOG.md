@@ -1,6 +1,6 @@
 # CHANGELOG
 
-# 0.2.3
+## 0.2.3
 
 - Feature: add `contributors` field
 
