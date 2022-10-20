@@ -101,7 +101,7 @@ export interface Style {
 /**
  * i18n string set.
  * @example
- * { "en_US": 'English', "zh_CN": '中文', fallback: 'English' }
+ * { "en-US": 'English', "zh-CN": '中文', fallback: 'English' }
  */
 export type I18NStringSet = {
   /** The fallback string if renderer cannot determine the language to use. */
