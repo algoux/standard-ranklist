@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.2.2';
+export type Version = '0.2.3';
 
 //#region common
 
@@ -114,6 +114,13 @@ export type I18NStringSet = {
  * Text (i18n supported).
  */
 export type Text = string | I18NStringSet;
+
+/**
+ * Contributor field. The email and url are optional.
+ * @example
+ * 'bLue <mail@example.com> (https://example.com/)'
+ */
+export type Contributor = string;
 
 //#endregion common
 
@@ -451,6 +458,9 @@ export interface Ranklist {
 
   /** Sorter. If no sorter specified, any extra auto-sort feature will be disabled by renderer. */
   sorter?: Sorter;
+
+  /** Contributors. */
+  contributors?: Contributor[];
 
   /** Current time. Used for real-time ranklist. */
   _now?: DatetimeISOString;

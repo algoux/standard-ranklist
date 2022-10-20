@@ -2,7 +2,10 @@ import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.2.2',
+  version: '0.2.3',
+  contributors: [
+    "bLue <mail@example.com> (https://example.com/)"
+  ],
   contest: {
     title: 'ACM ICPC World Finals 2018',
     startAt: '2018-04-19T17:00:00+08:00',
