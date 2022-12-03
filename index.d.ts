@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.2.3';
+export type Version = '0.2.4';
 
 //#region common
 
@@ -145,7 +145,7 @@ export interface ExternalUser {
 
 export interface User {
   /** Unique ID for each user. */
-  id?: number | string;
+  id: string;
 
   /** Username. */
   name: Text;

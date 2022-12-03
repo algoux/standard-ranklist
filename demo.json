@@ -1,6 +1,6 @@
 {
   "type": "general",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "contributors": [
     "bLue <mail@example.com> (https://example.com/)"
   ],
@@ -74,6 +74,7 @@
         }
       ],
       "user": {
+        "id": "Moscow State University",
         "name": "Moscow State University",
         "avatar": ""
       },

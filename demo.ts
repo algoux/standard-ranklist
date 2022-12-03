@@ -2,7 +2,7 @@ import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.2.3',
+  version: '0.2.4',
   contributors: [
     "bLue <mail@example.com> (https://example.com/)"
   ],
@@ -70,6 +70,7 @@ const ranklist: srk.Ranklist = {
         },
       ],
       user: {
+        id: 'Moscow State University',
         name: 'Moscow State University',
         avatar: '',
       },
