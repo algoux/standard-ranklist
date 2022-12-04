@@ -2,7 +2,7 @@ import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.2.4',
+  version: '0.3.0',
   contributors: [
     "bLue <mail@example.com> (https://example.com/)"
   ],
@@ -45,30 +45,29 @@ const ranklist: srk.Ranklist = {
       segments: [
         {
           title: 'Gold Medalist',
-          count: 4,
           style: 'gold',
         },
         {
           title: 'Silver Medalist',
-          count: 4,
           style: 'silver',
         },
         {
           title: 'Bronze Medalist',
-          count: 4,
           style: 'bronze',
         },
       ],
+      rule: {
+        preset: 'ICPC',
+        options: {
+          count: {
+            value: [4, 4, 4],
+          },
+        },
+      },
     }
   ],
   rows: [
     {
-      ranks: [
-        {
-          rank: 1,
-          segmentIndex: 0,
-        },
-      ],
       user: {
         id: 'Moscow State University',
         name: 'Moscow State University',

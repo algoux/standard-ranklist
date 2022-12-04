@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.2.4';
+export type Version = '0.3.0';
 
 //#region common
 
@@ -79,10 +79,12 @@ export type ColorRGBA = string;
 export type Color = ColorHEX | ColorRGB | ColorRGBA;
 
 /** Theme color. If only one color (for light theme) provided, the color for dark theme will be same as the light. */
-export type ThemeColor = Color | {
-  light: Color;
-  dark: Color;
-};
+export type ThemeColor =
+  | Color
+  | {
+      light: Color;
+      dark: Color;
+    };
 
 export interface Style {
   /**
@@ -212,7 +214,6 @@ export interface Problem {
    */
   link?: Link;
 
-
   /** Problem statistics. */
   statistics?: ProblemStatistics;
 
@@ -244,14 +245,23 @@ export type SolutionResultLite = 'FB' | 'AC' | 'RJ' | '?' | null;
  * 'CE' means "Compilation error".
  * 'UKE' means "Unknown Error".
  */
-export type SolutionResultFull = SolutionResultLite | 'WA' | 'PE' | 'TLE' | 'MLE' | 'OLE' | 'RTE' | 'CE' | 'UKE';
+export type SolutionResultFull =
+  | SolutionResultLite
+  | 'WA'
+  | 'PE'
+  | 'TLE'
+  | 'MLE'
+  | 'OLE'
+  | 'RTE'
+  | 'CE'
+  | 'UKE';
 
 /** Solution result custom (allows any string). */
 export type SolutionResultCustom = string;
 
 export interface Solution {
   /** Result. */
-  result: SolutionResultFull | SolutionResultCustom;
+  result: Exclude<SolutionResultFull, null> | SolutionResultCustom;
 
   /**
    * The score.
@@ -302,7 +312,11 @@ export interface Contest {
 }
 
 /** Rank series segment style preset. The style value will be determined by renderer. */
-export type RankSeriesSegmentStylePreset = 'gold' | 'silver' | 'bronze' | 'iron';
+export type RankSeriesSegmentStylePreset =
+  | 'gold'
+  | 'silver'
+  | 'bronze'
+  | 'iron';
 
 export interface RankSeriesSegment {
   /**
@@ -312,17 +326,111 @@ export interface RankSeriesSegment {
   title?: string;
 
   /**
-   * Maximum user count in this segment. User's segment will be calculated automatically based on rank.
-   * @defaultValue Use rank's segmentIndex property instead and it will be treated as 0 if auto-calculation triggered.
-   */
-  count?: number;
-
-  /**
    * Custom style on ranklist table body.
    * @defaultValue Determined by renderer.
    */
   style?: Style | RankSeriesSegmentStylePreset;
 }
+
+/**
+ * A series preset which is used to generate rank without any special process.
+ * This preset will directly assign rank to each user in ascending order if their scores are different.
+ */
+export interface RankSeriesRulePresetNormal {
+  preset: 'Normal';
+  options?: {
+    /**
+     * Whether to include official users only.
+     * @defaultValue false
+     */
+    includeOfficialOnly?: boolean;
+  };
+}
+
+/**
+ * A series preset which is used to generate rank by unique user field value.
+ * This preset will pick a subset of users with different specified user field values to assign rank in scending order.
+ * If multiple users have the same value of the field, only the first one will be picked.
+ */
+export interface RankSeriesRulePresetUniqByUserField {
+  preset: 'UniqByUserField';
+  options: {
+    /**
+     * Specify the field name of `user`.
+     * @example 'organization'
+     */
+    field: keyof User;
+    /**
+     * Whether to include official users only.
+     * @defaultValue false
+     */
+    includeOfficialOnly?: boolean;
+  };
+}
+
+/**
+ * A series preset which is used to generate rank by ICPC rules.
+ * This preset will calculate rank by classic ICPC rules.
+ */
+export interface RankSeriesRulePresetICPC {
+  preset: 'ICPC';
+  options: {
+    /**
+     * Use ratio algorithm to calculate rank.
+     * This algorithm will assign rank based on ratio.
+     *
+     * For example, if there are 240 users and the medal segment size are 10%, 20%, 30% of total user number,
+     * then the rank of the first 24 users will win gold medal (the first segment),
+     * the rank of the next 48 users will win silver medal (the second segment), and so on.
+     *
+     * Note that if multi algorithms specified, the segment will only be assigned if all algorithms are satisfied.
+     */
+    ratio?: {
+      /**
+       * The ratio size of each segment.
+       * @example [0.1, 0.2, 0.3]
+       */
+      value: number[];
+
+      /**
+       * The rounding method.
+       *
+       * For example, if their are 248 users and the ratio values are 10%, 20%, 30%,
+       * then there should be 24.8 users assigned the first segment.
+       * If the rounding method is 'ceil', actually the first 25 users will be assigned the first segment.
+       * If the rounding method is 'floor', actually the first 24 users will be assigned the first segment.
+       * If the rounding method is 'round', actually the first 25 users will be assigned the first segment.
+       * @defaultValue 'ceil'
+       */
+      rounding?: 'floor' | 'ceil' | 'round';
+
+      /**
+       * Specify how to count the denominator (total user number).
+       * If the value is 'all', the denominator will be the total user number.
+       * If the value is 'submitted', the denominator will be number of users which have submitted at least one solution.
+       * @defaultValue 'all'
+       */
+      denominator?: 'all' | 'submitted';
+    };
+
+    /**
+     * Use count algorithm to calculate rank.
+     * This algorithm will assign rank based on fixed number, i.e. each segment will have the fixed size.
+     */
+    count?: {
+      /**
+       * The fixed size of each segment.
+       * @example [24, 48, 72]
+       */
+      value: number[];
+    };
+  };
+}
+
+export type RankSeriesRulePreset =
+  | RankSeriesRulePresetNormal
+  | RankSeriesRulePresetUniqByUserField
+  | RankSeriesRulePresetICPC;
 
 export interface RankSeries {
   /**
@@ -336,17 +444,11 @@ export interface RankSeries {
    * @defaultValue []
    */
   segments?: RankSeriesSegment[];
-}
-
-export interface RankValue {
-  /** Rank value initially. If the user is unofficial and rank value equals null, it will be rendered as unofficial mark such as '*'. */
-  rank: number | null;
 
   /**
-   * Series segment index which this rank belongs to initially. `null` means this rank does not belong to any segment. `undefined` means it will be calculated automatically (only if the segment's count property exists).
-   * @defaultValue null
+   * Calculation rule for this series.
    */
-  segmentIndex?: number | null;
+  rule?: RankSeriesRulePreset;
 }
 
 export interface RankScore {
@@ -379,9 +481,6 @@ export interface RankProblemStatus {
 }
 
 export interface RanklistRow {
-  /** The list of rank value calculated. Each one corresponding to a rank series. */
-  ranks: RankValue[];
-
   /** User info. */
   user: User;
 
@@ -393,7 +492,14 @@ export interface RanklistRow {
 }
 
 /** Marker style preset. The style value will be determined by renderer. */
-export type MarkerStylePreset = 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink';
+export type MarkerStylePreset =
+  | 'red'
+  | 'orange'
+  | 'yellow'
+  | 'green'
+  | 'blue'
+  | 'purple'
+  | 'pink';
 
 /** Marker to mark the specified user. */
 export interface Marker {
@@ -407,8 +513,7 @@ export interface Marker {
   style: Style | MarkerStylePreset;
 }
 
-export interface SorterBase {
-}
+export interface SorterBase {}
 
 export interface SorterICPC extends SorterBase {
   algorithm: 'ICPC';
