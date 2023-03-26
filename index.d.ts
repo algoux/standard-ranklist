@@ -411,6 +411,12 @@ export interface RankSeriesRulePresetICPC {
        * @defaultValue 'all'
        */
       denominator?: 'all' | 'submitted';
+
+      /**
+       * Whether force no tied for rank segments calculation.
+       * For example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate.
+       */
+      noTied?: boolean
     };
 
     /**
@@ -423,6 +429,12 @@ export interface RankSeriesRulePresetICPC {
        * @example [24, 48, 72]
        */
       value: number[];
+
+      /**
+       * Whether force no tied for rank segments calculation.
+       * For example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate.
+       */
+      noTied?: boolean;
     };
   };
 }
