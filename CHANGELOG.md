@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.1
+
+- Feature: add `noTied` sub options for series rule preset `ICPC`
+
 ## 0.3.0
 
 - Feature: add `series[].rule` to describe the rule of the rank calculation, and removed `rows[].ranks`
