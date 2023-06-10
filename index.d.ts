@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.1';
+export type Version = '0.3.2';
 
 //#region common
 
@@ -542,6 +542,21 @@ export interface SorterICPC extends SorterBase {
      * @defaultValue ['FB', 'AC', '?', 'CE', 'UKE', null]
      */
     noPenaltyResults?: SolutionResultFull[];
+
+    /**
+     * Time precision when calculating ranklist.
+     * 
+     * For example, if the time unit of raw statuses is 's' (second) and the target time unit is 'min' (minute),
+     * then the time will be converted to minutes before calculating ranklist.
+     * @defaultValue No converting, based on raw precision of statuses data
+     */ 
+    timePrecision?: TimeUnit;
+
+    /**
+     * The rounding method when converting time unit to specified time precision.
+     * @defaultValue 'floor'
+     */
+    timeRounding?: 'floor' | 'ceil' | 'round';
   };
 }
 
@@ -578,6 +593,9 @@ export interface Ranklist {
 
   /** Contributors. */
   contributors?: Contributor[];
+
+  /** Remarks of the ranklist. */
+  remarks?: Text;
 
   /** Current time. Used for real-time ranklist. */
   _now?: DatetimeISOString;

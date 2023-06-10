@@ -2,7 +2,8 @@ import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.3.1',
+  version: '0.3.2',
+  remarks: 'This is a demo ranklist.',
   contributors: [
     "bLue <mail@example.com> (https://example.com/)"
   ],
