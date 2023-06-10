@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.2
+
+- Feature: add `remarks` field
+- Feature: add ICPC sorter `sorter.config.timePrecision` and `sorter.config.timeRounding` for custom time precision and rounding
+
 ## 0.3.1
 
 - Feature: add `noTied` sub options for series rule preset `ICPC`
