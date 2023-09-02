@@ -2,17 +2,20 @@ import * as srk from '.';
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.3.2',
+  version: '0.3.3',
   remarks: 'This is a demo ranklist.',
-  contributors: [
-    "bLue <mail@example.com> (https://example.com/)"
-  ],
+  contributors: ['bLue <mail@example.com> (https://example.com/)'],
   contest: {
     title: 'ACM ICPC World Finals 2018',
     startAt: '2018-04-19T17:00:00+08:00',
     duration: [5, 'h'],
     frozenDuration: [1, 'h'],
-    link: 'https://icpc.baylor.edu/scoreboard/',
+    refLinks: [
+      {
+        title: 'Original Ranklist',
+        link: 'https://icpc.baylor.edu/scoreboard/',
+      },
+    ],
   },
   problems: [
     {
@@ -65,7 +68,7 @@ const ranklist: srk.Ranklist = {
           },
         },
       },
-    }
+    },
   ],
   rows: [
     {

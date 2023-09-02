@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.3
+
+- Feature: add `filter` option for series preset `RankSeriesRulePresetICPC`
+- Change: `contest.link` has been removed. Use `contest.refLinks` to declare all related external links
+
 ## 0.3.2
 
 - Feature: add `remarks` field

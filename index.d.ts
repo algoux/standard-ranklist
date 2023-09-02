@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.2';
+export type Version = '0.3.3';
 
 //#region common
 
@@ -29,6 +29,23 @@ export type TimeUnit = 'ms' | 's' | 'min' | 'h' | 'd';
  */
 export type TimeDuration = [number, TimeUnit];
 
+/**
+ * i18n string set.
+ * @example
+ * { "en-US": 'English', "zh-CN": '中文', fallback: 'English' }
+ */
+export type I18NStringSet = {
+  /** The fallback string if renderer cannot determine the language to use. */
+  fallback: string;
+  /** The key is the IETF BCP 47 language tag, and the value is the string for this language tag. */
+  [key: string]: string;
+};
+
+/**
+ * Text (i18n supported).
+ */
+export type Text = string | I18NStringSet;
+
 /** URL. */
 export type Link = string;
 
@@ -39,7 +56,7 @@ export type Link = string;
  */
 export interface LinkWithTitle {
   link: Link;
-  title: string;
+  title: Text;
 }
 
 /** Base64 string. */
@@ -99,23 +116,6 @@ export interface Style {
    */
   backgroundColor?: ThemeColor;
 }
-
-/**
- * i18n string set.
- * @example
- * { "en-US": 'English', "zh-CN": '中文', fallback: 'English' }
- */
-export type I18NStringSet = {
-  /** The fallback string if renderer cannot determine the language to use. */
-  fallback: string;
-  /** The key is the IETF BCP 47 language tag, and the value is the string for this language tag. */
-  [key: string]: string;
-};
-
-/**
- * Text (i18n supported).
- */
-export type Text = string | I18NStringSet;
 
 /**
  * Contributor field. The email and url are optional.
@@ -299,12 +299,6 @@ export interface Contest {
   banner?: Image | ImageWithLink;
 
   /**
-   * The link to view original contest.
-   * @defaultValue Ignored by renderer.
-   */
-  link?: Link;
-
-  /**
    * Reference links of contest.
    * @defaultValue Ignored by renderer.
    */
@@ -436,6 +430,26 @@ export interface RankSeriesRulePresetICPC {
        */
       noTied?: boolean;
     };
+
+    /**
+     * Use filter to determine users to be included.
+     * Only if the user matches all filter options, it will be included as denominator.
+     */
+    filter?: {
+      byUserFields?: {
+        /**
+         * The field name of `user` to be filtered.
+         * @example 'organization'
+         */
+        field: keyof User;
+
+        /**
+         * The field match rule (RegExp constructor string) of `user` to be filtered.
+         * @example 'SDUT'
+         */
+        rule: string;
+      }[];
+    },
   };
 }
 
