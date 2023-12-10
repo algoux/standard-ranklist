@@ -242,6 +242,7 @@ export type SolutionResultLite = 'FB' | 'AC' | 'RJ' | '?' | null;
  * 'MLE' means "Memory Limit Exceeded".
  * 'OLE' means "Output Limit Exceeded".
  * 'RTE' means "Runtime Error".
+ * 'NOUT' means "No Output".
  * 'CE' means "Compilation error".
  * 'UKE' means "Unknown Error".
  */
@@ -253,6 +254,7 @@ export type SolutionResultFull =
   | 'MLE'
   | 'OLE'
   | 'RTE'
+  | 'NOUT'
   | 'CE'
   | 'UKE';
 
@@ -553,7 +555,7 @@ export interface SorterICPC extends SorterBase {
 
     /**
      * No penalty solution result list.
-     * @defaultValue ['FB', 'AC', '?', 'CE', 'UKE', null]
+     * @defaultValue ['FB', 'AC', '?', 'NOUT', 'CE', 'UKE', null]
      */
     noPenaltyResults?: SolutionResultFull[];
 
@@ -574,8 +576,14 @@ export interface SorterICPC extends SorterBase {
   };
 }
 
+export interface SorterScore extends SorterBase {
+  algorithm: 'score';
+
+  config: any;
+}
+
 /** Sorter type. */
-export type Sorter = SorterICPC;
+export type Sorter = SorterICPC | SorterScore;
 
 export interface Ranklist {
   /** Ranklist type. */
