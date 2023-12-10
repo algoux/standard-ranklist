@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.4
+
+- Feature: support new sorter type `score`
+- Feature: add new known solution result enum `NOUT` which means `No Output`
+
 ## 0.3.3
 
 - Feature: add `filter` option for series preset `RankSeriesRulePresetICPC`
