@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.5
+
+- Feature: add `markers` field for user and deprecate `marker` field
+
 ## 0.3.4
 
 - Feature: support new sorter type `score`
