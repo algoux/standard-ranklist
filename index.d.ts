@@ -186,9 +186,9 @@ export interface User {
   /**
    * Marker ids to which the user belongs.
    * @defaultValue Ignored by renderer.
-   * @since 0.3.5
+   * @since NEXT
    */
-  markers?: string;
+  markers?: string[];
 }
 
 export interface ProblemStatistics {
