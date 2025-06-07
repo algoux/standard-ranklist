@@ -179,8 +179,16 @@ export interface User {
   /**
    * Marker id for this user.
    * @defaultValue Ignored by renderer.
+   * @deprecated Use `markers` instead.
    */
   marker?: string;
+
+  /**
+   * Marker ids to which the user belongs.
+   * @defaultValue Ignored by renderer.
+   * @since NEXT
+   */
+  markers?: string;
 }
 
 export interface ProblemStatistics {
