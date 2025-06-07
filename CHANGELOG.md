@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.3.5
+## 0.3.6
 
 - Feature: add `markers` field for user and deprecate `marker` field
 

@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.5';
+export type Version = '0.3.6';
 
 //#region common
 
@@ -186,7 +186,7 @@ export interface User {
   /**
    * Marker ids to which the user belongs.
    * @defaultValue Ignored by renderer.
-   * @since NEXT
+   * @since 0.3.6
    */
   markers?: string[];
 }
