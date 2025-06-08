@@ -581,6 +581,24 @@ export interface SorterICPC extends SorterBase {
      * @defaultValue 'floor'
      */
     timeRounding?: 'floor' | 'ceil' | 'round';
+
+    /**
+     * Time precision when calculating rankings.
+     *
+     * This will only affect the rankings.
+     *
+     * It is equivalent to converting the final total time to the target precision before calculating rankings of series.
+     *
+     * Using lower precision means there is a higher probability of ranking ties.
+     * @defaultValue No converting, based on raw total time after calculating ranklist
+     */ 
+    rankingTimePrecision?: TimeUnit;
+
+    /**
+     * The rounding method of converting time unit to specified time precision when calculating rankings.
+     * @defaultValue 'floor'
+     */
+    rankingTimeRounding?: 'floor' | 'ceil' | 'round';
   };
 }
 
