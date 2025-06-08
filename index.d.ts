@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.6';
+export type Version = '0.3.7';
 
 //#region common
 
@@ -591,12 +591,14 @@ export interface SorterICPC extends SorterBase {
      *
      * Using lower precision means there is a higher probability of ranking ties.
      * @defaultValue No converting, based on raw total time after calculating ranklist
+     * @since 0.3.7
      */ 
     rankingTimePrecision?: TimeUnit;
 
     /**
      * The rounding method of converting time unit to specified time precision when calculating rankings.
      * @defaultValue 'floor'
+     * @since 0.3.7
      */
     rankingTimeRounding?: 'floor' | 'ceil' | 'round';
   };

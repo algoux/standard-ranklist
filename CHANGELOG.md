@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.7
+
+- Featyre: add `rankingTimePrecision` and `rankingTimeRounding` field for SorterICPC config
+
 ## 0.3.6
 
 - Feature: add `markers` field for user and deprecate `marker` field
