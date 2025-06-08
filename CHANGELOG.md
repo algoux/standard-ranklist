@@ -2,7 +2,7 @@
 
 ## 0.3.7
 
-- Featyre: add `rankingTimePrecision` and `rankingTimeRounding` field for SorterICPC config
+- Feature: add `rankingTimePrecision` and `rankingTimeRounding` field for SorterICPC config
 
 ## 0.3.6
 
