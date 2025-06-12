@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.8
+
+- Feature: add new denominator option `scored` for `RankSeriesRulePresetICPC`
+
 ## 0.3.7
 
 - Feature: add `rankingTimePrecision` and `rankingTimeRounding` field for SorterICPC config
