@@ -412,9 +412,10 @@ export interface RankSeriesRulePresetICPC {
        * Specify how to count the denominator (total user number).
        * If the value is 'all', the denominator will be the total user number.
        * If the value is 'submitted', the denominator will be number of users which have submitted at least one solution.
+       * If the value is 'scored', the denominator will be number of users which have greater than zero score.
        * @defaultValue 'all'
        */
-      denominator?: 'all' | 'submitted';
+      denominator?: 'all' | 'submitted' | 'scored';
 
       /**
        * Whether force no tied for rank segments calculation.
