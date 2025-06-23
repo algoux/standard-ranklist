@@ -127,6 +127,10 @@ export type Contributor = string;
 //#endregion common
 
 //#region ranklist
+export type FilterableUserFields = 'id' | 'name' | 'organization';
+
+export type GroupableUserFields = 'id' | 'name' | 'organization';
+
 
 export interface ExternalUser {
   /** Username. */
@@ -363,7 +367,7 @@ export interface RankSeriesRulePresetUniqByUserField {
      * Specify the field name of `user`.
      * @example 'organization'
      */
-    field: keyof User;
+    field: GroupableUserFields;
     /**
      * Whether to include official users only.
      * @defaultValue false
@@ -452,7 +456,7 @@ export interface RankSeriesRulePresetICPC {
          * The field name of `user` to be filtered.
          * @example 'organization'
          */
-        field: keyof User;
+        field: FilterableUserFields;
 
         /**
          * The field match rule (RegExp constructor string) of `user` to be filtered.
@@ -460,6 +464,13 @@ export interface RankSeriesRulePresetICPC {
          */
         rule: string;
       }[];
+
+      /**
+       * The marker ID to filter users.
+       * If specified, only users with this marker (exact match) will be included.
+       * @since NEXT
+       */
+      byMarker?: string;
     },
   };
 }
