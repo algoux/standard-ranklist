@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.8';
+export type Version = '0.3.9';
 
 //#region common
 
@@ -468,7 +468,7 @@ export interface RankSeriesRulePresetICPC {
       /**
        * The marker ID to filter users.
        * If specified, only users with this marker (exact match) will be included.
-       * @since NEXT
+       * @since 0.3.9
        */
       byMarker?: string;
     },

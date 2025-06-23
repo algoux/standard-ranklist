@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.9
+
+- Feature: add new `byMarker` filter option for `RankSeriesRulePresetICPC`
+- Change: limit the user fields that can be filtered and grouped to `id`, `name` and `organization`
+
 ## 0.3.8
 
 - Feature: add new denominator option `scored` for `RankSeriesRulePresetICPC`

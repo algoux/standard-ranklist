@@ -1,6 +1,6 @@
 {
   "name": "@algoux/standard-ranklist",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Standard Ranklist",
   "types": "index.d.ts",
   "scripts": {
