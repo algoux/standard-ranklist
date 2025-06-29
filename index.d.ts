@@ -181,14 +181,14 @@ export interface User {
   teamMembers?: ExternalUser[];
 
   /**
-   * Marker id for this user.
+   * Marker ID for this user.
    * @defaultValue Ignored by renderer.
    * @deprecated Use `markers` instead.
    */
   marker?: string;
 
   /**
-   * Marker ids to which the user belongs.
+   * Marker IDs to which the user belongs.
    * @defaultValue Ignored by renderer.
    * @since 0.3.6
    */
@@ -551,7 +551,7 @@ export type MarkerStylePreset =
 
 /** Marker to mark the specified user. */
 export interface Marker {
-  /** Marker id. */
+  /** Marker ID. */
   id: string;
 
   /** Marker label to display. */

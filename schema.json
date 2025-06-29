@@ -1,0 +1,1082 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://unpkg.com/@algoux/standard-ranklist@0.3.10/schema.json",
+  "title": "Standard Ranklist Schema",
+  "description": "Standard Ranklist",
+  "type": "object",
+  "properties": {
+    "type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "general"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "Ranklist type"
+    },
+    "version": {
+      "type": "string",
+      "description": "Ranklist version for current type"
+    },
+    "contest": {
+      "$ref": "#/definitions/Contest",
+      "description": "Contest info"
+    },
+    "problems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Problem"
+      },
+      "description": "Problems info"
+    },
+    "series": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/RankSeries"
+      },
+      "description": "Rank series"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/RanklistRow"
+      },
+      "description": "Ranklist data"
+    },
+    "markers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Marker"
+      },
+      "default": [],
+      "description": "Available markers"
+    },
+    "sorter": {
+      "$ref": "#/definitions/Sorter",
+      "description": "Sorter. If no sorter specified, any extra auto-sort feature will be disabled by renderer"
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Contributor"
+      },
+      "description": "Contributors"
+    },
+    "remarks": {
+      "$ref": "#/definitions/Text",
+      "description": "Remarks of the ranklist"
+    },
+    "_now": {
+      "$ref": "#/definitions/DatetimeISOString",
+      "description": "Current time. Used for real-time ranklist"
+    }
+  },
+  "required": [
+    "type",
+    "version",
+    "contest",
+    "problems",
+    "series",
+    "rows"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "DatetimeISOString": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2019-01-01T00:00:00Z",
+        "2019-01-01T08:00:00+08:00",
+        "2019-01-01T00:00:00.000Z"
+      ]
+    },
+    "TimeUnit": {
+      "type": "string",
+      "enum": [
+        "ms",
+        "s",
+        "min",
+        "h",
+        "d"
+      ]
+    },
+    "TimeDuration": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "#/definitions/TimeUnit"
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2,
+      "examples": [
+        [
+          25,
+          "ms"
+        ],
+        [
+          2,
+          "s"
+        ],
+        [
+          60,
+          "s"
+        ]
+      ]
+    },
+    "I18NStringSet": {
+      "type": "object",
+      "properties": {
+        "fallback": {
+          "type": "string",
+          "description": "The fallback string if renderer cannot determine the language to use"
+        }
+      },
+      "required": [
+        "fallback"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "description": "The key is the IETF BCP 47 language tag, and the value is the string for this language tag"
+      },
+      "examples": [
+        {
+          "en-US": "English",
+          "zh-CN": "中文",
+          "fallback": "English"
+        }
+      ]
+    },
+    "Text": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/definitions/I18NStringSet"
+        }
+      ]
+    },
+    "Link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "LinkWithTitle": {
+      "type": "object",
+      "properties": {
+        "link": {
+          "$ref": "#/definitions/Link"
+        },
+        "title": {
+          "$ref": "#/definitions/Text"
+        }
+      },
+      "required": [
+        "link",
+        "title"
+      ],
+      "examples": [
+        {
+          "link": "https://icpc.baylor.edu/",
+          "title": "ICPC Home Page"
+        }
+      ]
+    },
+    "Base64": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]*={0,2}$"
+    },
+    "Image": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Link"
+        },
+        {
+          "$ref": "#/definitions/Base64"
+        }
+      ]
+    },
+    "ImageWithLink": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/Image"
+        },
+        "link": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "required": [
+        "image",
+        "link"
+      ]
+    },
+    "ColorHEX": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "examples": [
+        "#FFFFFF"
+      ]
+    },
+    "ColorRGB": {
+      "type": "string",
+      "pattern": "^rgb\\(\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+\\s*\\)$",
+      "examples": [
+        "rgb(255, 255, 255)"
+      ]
+    },
+    "ColorRGBA": {
+      "type": "string",
+      "pattern": "^rgba\\(\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*\\d+\\s*,\\s*[0-9.]+\\s*\\)$",
+      "examples": [
+        "rgba(255, 255, 255, 0.75)"
+      ]
+    },
+    "Color": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/ColorHEX"
+        },
+        {
+          "$ref": "#/definitions/ColorRGB"
+        },
+        {
+          "$ref": "#/definitions/ColorRGBA"
+        }
+      ]
+    },
+    "ThemeColor": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Color"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "light": {
+              "$ref": "#/definitions/Color"
+            },
+            "dark": {
+              "$ref": "#/definitions/Color"
+            }
+          },
+          "required": [
+            "light",
+            "dark"
+          ]
+        }
+      ]
+    },
+    "Style": {
+      "type": "object",
+      "properties": {
+        "textColor": {
+          "$ref": "#/definitions/ThemeColor"
+        },
+        "backgroundColor": {
+          "$ref": "#/definitions/ThemeColor"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contributor": {
+      "type": "string",
+      "description": "Contributor field. The email and url are optional",
+      "examples": [
+        "bLue <mail@example.com> (https://example.com/)"
+      ]
+    },
+    "FilterableUserFields": {
+      "type": "string",
+      "enum": [
+        "id",
+        "name",
+        "organization"
+      ]
+    },
+    "GroupableUserFields": {
+      "type": "string",
+      "enum": [
+        "id",
+        "name",
+        "organization"
+      ]
+    },
+    "ExternalUser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Text",
+          "description": "Username"
+        },
+        "avatar": {
+          "$ref": "#/definitions/Image",
+          "description": "User avatar"
+        },
+        "link": {
+          "type": "string",
+          "description": "The link to view user"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": true,
+      "description": "External user information"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID for each user"
+        },
+        "name": {
+          "$ref": "#/definitions/Text",
+          "description": "Username"
+        },
+        "official": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determines whether the user is official. If it's false, the user's rank will not be calculated in ranklist"
+        },
+        "avatar": {
+          "$ref": "#/definitions/Image",
+          "description": "User avatar"
+        },
+        "organization": {
+          "$ref": "#/definitions/Text",
+          "description": "Organization"
+        },
+        "teamMembers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExternalUser"
+          },
+          "default": [],
+          "description": "Team members"
+        },
+        "marker": {
+          "type": "string",
+          "description": "Marker ID for this user (deprecated, use markers instead)",
+          "deprecated": true
+        },
+        "markers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Marker IDs to which the user belongs",
+          "since": "0.3.6"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": true,
+      "description": "User information"
+    },
+    "ProblemStatistics": {
+      "type": "object",
+      "properties": {
+        "accepted": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of accepted solutions totally"
+        },
+        "submitted": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The number of submitted solutions totally"
+        }
+      },
+      "required": [
+        "accepted",
+        "submitted"
+      ],
+      "additionalProperties": false,
+      "description": "Problem statistics"
+    },
+    "Problem": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/Text",
+          "description": "Problem title"
+        },
+        "alias": {
+          "type": "string",
+          "description": "Specifies an alias for problem",
+          "examples": [
+            "A",
+            "B",
+            "1-1"
+          ]
+        },
+        "link": {
+          "$ref": "#/definitions/Link",
+          "description": "The link to view problem"
+        },
+        "statistics": {
+          "$ref": "#/definitions/ProblemStatistics",
+          "description": "Problem statistics"
+        },
+        "style": {
+          "$ref": "#/definitions/Style",
+          "description": "Custom style on ranklist table header"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Problem information"
+    },
+    "SolutionResultLite": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "FB",
+            "AC",
+            "RJ",
+            "?"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Solution result lite preset.\n'FB' means 'First Blood', the first to solve.\n'AC' means accepted.\n'RJ' means rejected.\n'?' means the result is frozen.\nnull means no solutions submitted yet."
+    },
+    "SolutionResultFull": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/SolutionResultLite"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "WA",
+            "PE",
+            "TLE",
+            "MLE",
+            "OLE",
+            "RTE",
+            "NOUT",
+            "CE",
+            "UKE"
+          ]
+        }
+      ],
+      "description": "Solution result full preset.\n'WA' means 'Wrong Answer'.\n'PE' means 'Presentation Error'.\n'TLE' means 'Time Limit Exceeded'.\n'MLE' means 'Memory Limit Exceeded'.\n'OLE' means 'Output Limit Exceeded'.\n'RTE' means 'Runtime Error'.\n'NOUT' means 'No Output'.\n'CE' means 'Compilation error'.\n'UKE' means 'Unknown Error'."
+    },
+    "SolutionResultCustom": {
+      "type": "string",
+      "description": "Solution result custom (allows any string)"
+    },
+    "Solution": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "FB",
+                "AC",
+                "RJ",
+                "?",
+                "WA",
+                "PE",
+                "TLE",
+                "MLE",
+                "OLE",
+                "RTE",
+                "NOUT",
+                "CE",
+                "UKE"
+              ]
+            },
+            {
+              "$ref": "#/definitions/SolutionResultCustom"
+            }
+          ],
+          "description": "Result"
+        },
+        "score": {
+          "type": "number",
+          "description": "The score"
+        },
+        "time": {
+          "$ref": "#/definitions/TimeDuration",
+          "description": "Submission time"
+        },
+        "link": {
+          "$ref": "#/definitions/Link",
+          "description": "The link to view solution"
+        }
+      },
+      "required": [
+        "result",
+        "time"
+      ],
+      "additionalProperties": false,
+      "description": "Solution information"
+    },
+    "Contest": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/Text",
+          "description": "Contest title"
+        },
+        "startAt": {
+          "$ref": "#/definitions/DatetimeISOString",
+          "description": "Start time"
+        },
+        "duration": {
+          "$ref": "#/definitions/TimeDuration",
+          "description": "Contest duration"
+        },
+        "frozenDuration": {
+          "$ref": "#/definitions/TimeDuration",
+          "default": [
+            0,
+            "s"
+          ],
+          "description": "Ranklist frozen duration"
+        },
+        "banner": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Image"
+            },
+            {
+              "$ref": "#/definitions/ImageWithLink"
+            }
+          ],
+          "description": "Banner image"
+        },
+        "refLinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LinkWithTitle"
+          },
+          "description": "Reference links of contest"
+        }
+      },
+      "required": [
+        "title",
+        "startAt",
+        "duration"
+      ],
+      "additionalProperties": false,
+      "description": "Contest information"
+    },
+    "RankSeriesSegmentStylePreset": {
+      "type": "string",
+      "enum": [
+        "gold",
+        "silver",
+        "bronze",
+        "iron"
+      ],
+      "description": "Rank series segment style preset"
+    },
+    "RankSeriesSegment": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Segment title"
+        },
+        "style": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Style"
+            },
+            {
+              "$ref": "#/definitions/RankSeriesSegmentStylePreset"
+            }
+          ],
+          "description": "Custom style on ranklist table body"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Rank series segment"
+    },
+    "RankSeriesRulePresetNormal": {
+      "type": "object",
+      "properties": {
+        "preset": {
+          "type": "string",
+          "const": "Normal"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "includeOfficialOnly": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to include official users only"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "preset"
+      ],
+      "additionalProperties": false,
+      "description": "A series preset which is used to generate rank without any special process.\nThis preset will directly assign rank to each user in ascending order if their scores are different."
+    },
+    "RankSeriesRulePresetUniqByUserField": {
+      "type": "object",
+      "properties": {
+        "preset": {
+          "type": "string",
+          "const": "UniqByUserField"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "field": {
+              "$ref": "#/definitions/GroupableUserFields",
+              "description": "Specify the field name of user",
+              "examples": [
+                "organization"
+              ]
+            },
+            "includeOfficialOnly": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to include official users only"
+            }
+          },
+          "required": [
+            "field"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "preset",
+        "options"
+      ],
+      "additionalProperties": false,
+      "description": "A series preset which is used to generate rank by unique user field value.\nThis preset will pick a subset of users with different specified user field values to assign rank in scending order.\nIf multiple users have the same value of the field, only the first one will be picked."
+    },
+    "RankSeriesRulePresetICPC": {
+      "type": "object",
+      "properties": {
+        "preset": {
+          "type": "string",
+          "const": "ICPC"
+        },
+        "options": {
+          "type": "object",
+          "properties": {
+            "ratio": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "description": "The ratio size of each segment",
+                  "examples": [
+                    [
+                      0.1,
+                      0.2,
+                      0.3
+                    ]
+                  ]
+                },
+                "rounding": {
+                  "type": "string",
+                  "enum": [
+                    "floor",
+                    "ceil",
+                    "round"
+                  ],
+                  "default": "ceil",
+                  "description": "The rounding method.\nFor example, if their are 248 users and the ratio values are 10%, 20%, 30%,\nthen there should be 24.8 users assigned the first segment.\nIf the rounding method is 'ceil', actually the first 25 users will be assigned the first segment.\nIf the rounding method is 'floor', actually the first 24 users will be assigned the first segment.\nIf the rounding method is 'round', actually the first 25 users will be assigned the first segment."
+                },
+                "denominator": {
+                  "type": "string",
+                  "enum": [
+                    "all",
+                    "submitted",
+                    "scored"
+                  ],
+                  "default": "all",
+                  "description": "Specify how to count the denominator (total user number).\nIf the value is 'all', the denominator will be the total user number.\nIf the value is 'submitted', the denominator will be number of users which have submitted at least one solution.\nIf the value is 'scored', the denominator will be number of users which have greater than zero score."
+                },
+                "noTied": {
+                  "type": "boolean",
+                  "description": "Whether force no tied for rank segments calculation.\nFor example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate."
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "additionalProperties": false,
+              "description": "Use ratio algorithm to calculate rank.\nThis algorithm will assign rank based on ratio.\nFor example, if there are 240 users and the medal segment size are 10%, 20%, 30% of total user number,\nthen the rank of the first 24 users will win gold medal (the first segment),\nthe rank of the next 48 users will win silver medal (the second segment), and so on.\nNote that if multi algorithms specified, the segment will only be assigned if all algorithms are satisfied."
+            },
+            "count": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "description": "The fixed size of each segment",
+                  "examples": [
+                    [
+                      24,
+                      48,
+                      72
+                    ]
+                  ]
+                },
+                "noTied": {
+                  "type": "boolean",
+                  "description": "Whether force no tied for rank segments calculation.\nFor example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate."
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "additionalProperties": false,
+              "description": "Use count algorithm to calculate rank.\nThis algorithm will assign rank based on fixed number, i.e. each segment will have the fixed size."
+            },
+            "filter": {
+              "type": "object",
+              "properties": {
+                "byUserFields": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "$ref": "#/definitions/FilterableUserFields",
+                        "description": "The field name of user to be filtered",
+                        "examples": [
+                          "organization"
+                        ]
+                      },
+                      "rule": {
+                        "type": "string",
+                        "description": "The field match rule (RegExp constructor string) of user to be filtered",
+                        "examples": [
+                          "SDUT"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "field",
+                      "rule"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "The user field options to filter users"
+                },
+                "byMarker": {
+                  "type": "string",
+                  "description": "The marker ID to filter users.\nIf multiple markers are specified, the user will be included only if all markers are satisfied.",
+                  "since": "0.3.9"
+                }
+              },
+              "additionalProperties": false,
+              "description": "Use filter to determine users to be included.\nOnly if the user matches all filter options, it will be included as denominator."
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "preset",
+        "options"
+      ],
+      "additionalProperties": false,
+      "description": "A series preset which is used to generate rank by ICPC rules.\nThis preset will calculate rank by classic ICPC rules."
+    },
+    "RankSeriesRulePreset": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/RankSeriesRulePresetNormal"
+        },
+        {
+          "$ref": "#/definitions/RankSeriesRulePresetUniqByUserField"
+        },
+        {
+          "$ref": "#/definitions/RankSeriesRulePresetICPC"
+        }
+      ],
+      "description": "Rank series rule preset"
+    },
+    "RankSeries": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Series title on ranklist table header"
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RankSeriesSegment"
+          },
+          "default": [],
+          "description": "Series segments"
+        },
+        "rule": {
+          "$ref": "#/definitions/RankSeriesRulePreset",
+          "description": "Calculation rule for this series"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Rank series"
+    },
+    "RankScore": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The total score value"
+        },
+        "time": {
+          "$ref": "#/definitions/TimeDuration",
+          "description": "Time used totally"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false,
+      "description": "Rank score"
+    },
+    "RankProblemStatus": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/SolutionResultLite",
+          "description": "Latest confirmed result"
+        },
+        "score": {
+          "type": "number",
+          "description": "The score"
+        },
+        "time": {
+          "$ref": "#/definitions/TimeDuration",
+          "description": "The time of result"
+        },
+        "tries": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The tries count"
+        },
+        "solutions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Solution"
+          },
+          "default": [],
+          "description": "Solutions for this problem (sorted by submission time in ascending order).\nIf no solutions provided, auto-sort feature will be disabled."
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "additionalProperties": false,
+      "description": "Rank problem status"
+    },
+    "RanklistRow": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/User",
+          "description": "User info"
+        },
+        "score": {
+          "$ref": "#/definitions/RankScore",
+          "description": "Score"
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RankProblemStatus"
+          },
+          "description": "Problem statuses. Each one corresponding to a problem"
+        }
+      },
+      "required": [
+        "user",
+        "score",
+        "statuses"
+      ],
+      "additionalProperties": false,
+      "description": "Ranklist row"
+    },
+    "MarkerStylePreset": {
+      "type": "string",
+      "enum": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple",
+        "pink"
+      ],
+      "description": "Marker style preset"
+    },
+    "Marker": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Marker ID"
+        },
+        "label": {
+          "$ref": "#/definitions/Text",
+          "description": "Marker label to display"
+        },
+        "style": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Style"
+            },
+            {
+              "$ref": "#/definitions/MarkerStylePreset"
+            }
+          ],
+          "description": "Custom style for marker"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "style"
+      ],
+      "additionalProperties": false,
+      "description": " Marker to mark the specified user"
+    },
+    "SorterICPC": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "const": "ICPC"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "penalty": {
+              "$ref": "#/definitions/TimeDuration",
+              "default": [
+                20,
+                "min"
+              ],
+              "description": "Penalty time per extra tries before the first accepted solution"
+            },
+            "noPenaltyResults": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SolutionResultFull"
+              },
+              "default": [
+                "FB",
+                "AC",
+                "?",
+                "NOUT",
+                "CE",
+                "UKE",
+                null
+              ],
+              "description": "No penalty solution result list"
+            },
+            "timePrecision": {
+              "$ref": "#/definitions/TimeUnit",
+              "description": "Time precision when calculating ranklist.\nFor example, if the time unit of raw statuses is 's' (second) and the target time unit is 'min' (minute), then the time will be converted to minutes before calculating ranklist.\nThe default behavior is no converting, based on raw precision of statuses data."
+            },
+            "timeRounding": {
+              "type": "string",
+              "enum": [
+                "floor",
+                "ceil",
+                "round"
+              ],
+              "default": "floor",
+              "description": "The rounding method when converting time unit to specified time precision"
+            },
+            "rankingTimePrecision": {
+              "$ref": "#/definitions/TimeUnit",
+              "description": "Time precision when calculating rankings.\nThis will only affect the rankings.\nIt is equivalent to converting the final total time to the target precision before calculating rankings of series.\nUsing lower precision means there is a higher probability of ranking ties.\nThe default behavior is no converting, based on raw total time after calculating ranklist.",
+              "since": "0.3.7"
+            },
+            "rankingTimeRounding": {
+              "type": "string",
+              "enum": [
+                "floor",
+                "ceil",
+                "round"
+              ],
+              "default": "floor",
+              "description": "The rounding method of converting time unit to specified time precision when calculating rankings",
+              "since": "0.3.7"
+            }
+          },
+          "additionalProperties": false,
+          "description": "ICPC sorter configuration"
+        }
+      },
+      "required": [
+        "algorithm",
+        "config"
+      ],
+      "additionalProperties": false,
+      "description": "ICPC sorter"
+    },
+    "SorterScore": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "const": "score"
+        },
+        "config": {
+          "type": "object",
+          "description": "Score sorter configuration"
+        }
+      },
+      "required": [
+        "algorithm",
+        "config"
+      ],
+      "additionalProperties": false,
+      "description": "Score sorter"
+    },
+    "Sorter": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/SorterICPC"
+        },
+        {
+          "$ref": "#/definitions/SorterScore"
+        }
+      ],
+      "description": "Sorter"
+    }
+  }
+}
