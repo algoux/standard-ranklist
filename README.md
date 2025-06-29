@@ -9,6 +9,7 @@ Version: `0.3.10` (updated on 2025-06-29)
 ## Files
 
 - `index.d.ts`: srk definition
+- `schema.json`: srk JSON Schema
 - `demo.ts`: json like demo
 
 ## Resources
