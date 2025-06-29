@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.10
+
+- Chore: add JSON Schema `schema.json`
+
 ## 0.3.9
 
 - Feature: add new `byMarker` filter option for `RankSeriesRulePresetICPC`
