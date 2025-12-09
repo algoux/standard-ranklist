@@ -350,9 +350,17 @@
           "$ref": "#/definitions/Image",
           "description": "User avatar"
         },
+        "photo": {
+          "$ref": "#/definitions/Image",
+          "description": "User photo"
+        },
         "organization": {
           "$ref": "#/definitions/Text",
           "description": "Organization"
+        },
+        "location": {
+          "type": "string",
+          "description": "On-site location"
         },
         "teamMembers": {
           "type": "array",
