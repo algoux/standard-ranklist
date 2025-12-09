@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.11
+
+- Feature: add new user fields `photo` and `location`.
+
 ## 0.3.10
 
 - Chore: add JSON Schema `schema.json`

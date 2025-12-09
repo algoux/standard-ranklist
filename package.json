@@ -1,6 +1,6 @@
 {
   "name": "@algoux/standard-ranklist",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "description": "Standard Ranklist",
   "types": "index.d.ts",
   "jsonSchema": "schema.json",
