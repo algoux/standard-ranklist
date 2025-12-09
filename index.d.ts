@@ -169,10 +169,22 @@ export interface User {
   avatar?: Image;
 
   /**
+   * User photo.
+   * @defaultValue Ignored by renderer.
+   */
+  photo?: Image;
+
+  /**
    * Organization.
    * @defaultValue Ignored by renderer.
    */
   organization?: Text;
+
+  /**
+   * On-site location.
+   * @defaultValue Ignored by renderer.
+   */
+  location?: string;
 
   /**
    * Team members.
