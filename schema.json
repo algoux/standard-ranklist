@@ -188,9 +188,13 @@
         }
       ]
     },
-    "Base64": {
+    "RelativePath": {
       "type": "string",
-      "pattern": "^[A-Za-z0-9+/]*={0,2}$"
+      "description": "The path relative to bundled root"
+    },
+    "DataURLBase64": {
+      "type": "string",
+      "description": "Data URL with base64 encoding"
     },
     "Image": {
       "anyOf": [
@@ -198,7 +202,10 @@
           "$ref": "#/definitions/Link"
         },
         {
-          "$ref": "#/definitions/Base64"
+          "$ref": "#/definitions/RelativePath"
+        },
+        {
+          "$ref": "#/definitions/DataURLBase64"
         }
       ]
     },

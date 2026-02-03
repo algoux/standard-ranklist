@@ -59,11 +59,23 @@ export interface LinkWithTitle {
   title: Text;
 }
 
-/** Base64 string. */
-export type Base64 = string;
+/**
+ * Relative path.
+ * It's relative to bundled root.
+ * @example
+ * 'assets/image.png'
+ */
+export type RelativePath = string;
+
+/**
+ * Base64 Data URL string.
+ * @example
+ * 'data:image/png;base64,...'
+ */
+export type DataURLBase64 = string;
 
 /** Image. */
-export type Image = Link | Base64;
+export type Image = Link | RelativePath | DataURLBase64;
 
 /** Image with link. */
 export interface ImageWithLink {
