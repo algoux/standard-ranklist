@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 0.3.12
+
+- Feature: add `RelativePath` type for `Image` and rename `Base64` type to `DataURLBase64`
+
 ## 0.3.11
 
-- Feature: add new user fields `photo` and `location`.
+- Feature: add new user fields `photo` and `location`
 
 ## 0.3.10
 

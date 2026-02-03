@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.11';
+export type Version = '0.3.12';
 
 //#region common
 
