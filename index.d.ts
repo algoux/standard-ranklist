@@ -381,7 +381,7 @@ export interface RankSeriesRulePresetNormal {
 
 /**
  * A series preset which is used to generate rank by unique user field value.
- * This preset will pick a subset of users with different specified user field values to assign rank in scending order.
+ * This preset will pick a subset of users with different specified user field values to assign rank in ascending order.
  * If multiple users have the same value of the field, only the first one will be picked.
  */
 export interface RankSeriesRulePresetUniqByUserField {
@@ -448,6 +448,7 @@ export interface RankSeriesRulePresetICPC {
       /**
        * Whether force no tied for rank segments calculation.
        * For example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate.
+       * @defaultValue false
        */
       noTied?: boolean
     };
@@ -466,6 +467,7 @@ export interface RankSeriesRulePresetICPC {
       /**
        * Whether force no tied for rank segments calculation.
        * For example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate.
+       * @defaultValue false
        */
       noTied?: boolean;
     };
@@ -541,11 +543,19 @@ export interface RankProblemStatus {
   /** The time of result. */
   time?: TimeDuration;
 
-  /** The tries count. */
+  /**
+   * The tries count.
+   * For ICPC-style contests, this counts effective submissions up to and including
+   * the first accepted solution. What constitutes an "effective" submission is determined
+   * by the sorter's `noPenaltyResults` configuration — submissions whose results appear
+   * in `noPenaltyResults` (except the accepted one itself) are not counted as effective tries.
+   */
   tries?: number;
 
   /**
    * Solutions for this problem (sorted by submission time in ascending order).
+   * May include all submissions regardless of result type.
+   * This array is not limited to effective submissions only.
    * If no solutions provided, auto-sort feature will be disabled.
    * @defaultValue []
    */
