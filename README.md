@@ -4,12 +4,13 @@ Standard Ranklist (srk) is a json format to describe many kinds of ranklists lik
 
 With srk, most of programming contest ranklists can be described in a standard format. It's easy to customize display style with different renderers and share everywhere.
 
-Version: `0.3.11` (updated on 2025-12-09)
+Version: `0.3.12` (updated on 2026-02-03)
 
 ## Files
 
-- `index.d.ts`: srk definition
-- `schema.json`: srk JSON Schema
+- `specs/`: srk specification documents
+- `index.d.ts`: srk type definition (can be used in TypeScript)
+- `schema.json`: srk JSON Schema (can be used in JSON Schema validator)
 - `demo.ts`: json like demo
 
 ## Resources
