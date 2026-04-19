@@ -8,10 +8,10 @@ Version: `0.3.12` (updated on 2026-02-03)
 
 ## Files
 
-- `specs/`: srk specification documents
-- `index.d.ts`: srk type definition (can be used in TypeScript)
-- `schema.json`: srk JSON Schema (can be used in JSON Schema validator)
-- `demo.ts`: json like demo
+- [`specs/`](specs/): srk specification documents
+- [`index.d.ts`](index.d.ts): srk type definition (can be used in TypeScript)
+- [`schema.json`](schema.json): srk JSON Schema (can be used in JSON Schema validator)
+- [`demo.ts`](demo.ts): json like demo
 
 ## Resources
 
