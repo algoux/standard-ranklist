@@ -5,22 +5,21 @@ const SPECS_BASE =
 
 export default defineConfig({
   title: 'Standard Ranklist',
-  description: '标准化编程竞赛排名数据格式',
+  description: 'A unified data format for competitive programming ranklists',
 
   locales: {
-    root: {
-      label: '简体中文',
-      lang: 'zh-CN',
-      link: '/zh/',
-    },
-    // en: {
+    // root: {
     //   label: 'English',
-    //   lang: 'en-US',
-    //   link: '/en/',
+    //   lang: 'en',
     // },
+    en: {
+      label: 'English',
+      lang: 'en',
+      link: '/en/',
+    },
     zh: {
       label: '简体中文',
-      lang: 'zh-CN',
+      lang: 'zh',
       link: '/zh/',
       themeConfig: {
         nav: [
@@ -56,10 +55,10 @@ export default defineConfig({
     i18nRouting: true,
 
     nav: [
-      { text: 'Intro', link: '/zh/introduction/what-is-srk' },
-      { text: 'Guide', link: '/zh/guide/getting-started' },
-      { text: 'Ecosystem', link: '/zh/ecosystem/overview' },
-      { text: 'Reference', link: '/zh/reference/data-types' },
+      { text: 'Intro', link: '/en/introduction/what-is-srk' },
+      { text: 'Guide', link: '/en/guide/getting-started' },
+      { text: 'Ecosystem', link: '/en/ecosystem/overview' },
+      { text: 'Reference', link: '/en/reference/data-types' },
       {
         text: 'Spec',
         link: 'https://github.com/algoux/standard-ranklist/blob/master/specs/README.md',
@@ -68,6 +67,46 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/en/': [
+        {
+          text: 'Introduction',
+          items: [
+            { text: 'What is srk?', link: '/en/introduction/what-is-srk' },
+            { text: 'Core Concepts', link: '/en/introduction/core-concepts' },
+            { text: 'Ecosystem', link: '/en/introduction/ecosystem' },
+          ],
+        },
+        {
+          text: 'Guide',
+          items: [
+            { text: 'Getting Started', link: '/en/guide/getting-started' },
+            { text: 'Contest & Problems', link: '/en/guide/contest-and-problems' },
+            { text: 'Participants', link: '/en/guide/participants' },
+            { text: 'Rows', link: '/en/guide/rows' },
+            { text: 'Series & Segments', link: '/en/guide/series-and-segments' },
+            { text: 'Sorting', link: '/en/guide/sorter' },
+            { text: 'Markers', link: '/en/guide/markers' },
+            { text: 'Advanced', link: '/en/guide/advanced' },
+          ],
+        },
+        {
+          text: 'Ecosystem',
+          items: [
+            { text: 'Toolchain Overview', link: '/en/ecosystem/overview' },
+            { text: 'Renderer Component', link: '/en/ecosystem/renderer' },
+            { text: 'Utils Library', link: '/en/ecosystem/utils' },
+            { text: 'Format Conversion', link: '/en/ecosystem/convert-to' },
+          ],
+        },
+        {
+          text: 'Reference',
+          items: [
+            { text: 'Data Types', link: '/en/reference/data-types' },
+            { text: 'Versioning', link: '/en/reference/versioning' },
+          ],
+        },
+      ],
+
       '/zh/': [
         {
           text: '介绍',
