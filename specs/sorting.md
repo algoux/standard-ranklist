@@ -4,9 +4,11 @@ This document defines the sorting algorithms used to order ranklist rows and com
 
 ## Overview
 
-The `sorter` field on the top-level [Ranklist](ranklist.md#ranklist) object specifies how rows SHOULD be sorted. When a sorter is defined, implementations SHOULD sort the `rows` array according to the specified algorithm before rendering or processing.
+The `sorter` field on the top-level [Ranklist](ranklist.md#ranklist) object specifies how rows are sorted.
 
-When no `sorter` is specified, implementations MUST preserve the original order of `rows` as provided in the data. Any auto-sort features SHOULD be disabled.
+When a sorter is defined, producers MUST ensure that the `rows` array is already sorted according to the specified algorithm. Consumers MAY rely on this ordering without re-sorting.
+
+When no `sorter` is specified, the `rows` array order is producer-defined. Consumers MUST preserve the original order of `rows` as provided in the data. Any auto-sort features SHOULD be disabled.
 
 ## Sorter
 

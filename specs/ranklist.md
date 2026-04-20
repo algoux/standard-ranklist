@@ -358,7 +358,7 @@ The status of a specific problem for a specific user.
 | `score` | `number` | No | — | The score for this problem |
 | `time` | [TimeDuration](data-types.md#timeduration) | No | — | The time of the result (relative to contest start) |
 | `tries` | `integer` | No | — | The number of effective submission attempts (see below) |
-| `solutions` | `array<`[Solution](#solution)`>` | No | `[]` | Individual solutions, sorted by submission time in ascending order |
+| `solutions` | `array<`[Solution](#solution)`>` | No | `[]` | Individual solutions (see ordering requirement below) |
 
 ### Tries Semantics
 
@@ -370,7 +370,7 @@ The `tries` field represents the number of **effective** submission attempts for
 
 The `result` field represents the **summary status** of the problem for this user. It uses [SolutionResultLite](#solutionresultlite) which includes `null` (indicating no submission).
 
-The `solutions` array, when present, provides the **detailed submission history**. The array MAY include all submissions regardless of result type — including submissions whose results match `noPenaltyResults` (e.g., `"CE"`, `"?"`, `null`). This array is not limited to effective submissions only; it serves as a complete record of all attempts.
+The `solutions` array, when present, provides the **detailed submission history**. Producers MUST order the `solutions` array by submission time in ascending order (earliest first). The array MAY include all submissions regardless of result type — including submissions whose results match `noPenaltyResults` (e.g., `"CE"`, `"?"`, `null`). This array is not limited to effective submissions only; it serves as a complete record of all attempts.
 
 If `solutions` is provided, implementations MAY use it to enable features such as submission timeline replay or animation. If `solutions` is absent or empty, auto-sort features based on solution data SHOULD be disabled.
 
