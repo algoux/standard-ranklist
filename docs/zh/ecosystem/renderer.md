@@ -19,8 +19,8 @@
 | React | [`@algoux/standard-ranklist-renderer-component-react`](https://www.npmjs.com/package/@algoux/standard-ranklist-renderer-component-react) |
 | Vue | [`@algoux/standard-ranklist-renderer-component-vue`](https://www.npmjs.com/package/@algoux/standard-ranklist-renderer-component-vue) |
 | Angular | [`@algoux/standard-ranklist-renderer-component-angular`](https://www.npmjs.com/package/@algoux/standard-ranklist-renderer-component-angular) |
-| Svelte | [`@algoux/standard-ranklist-renderer-component-svelte`](https://www.npmjs.com/package/@algoux/standard-ranklist-renderer-component-svelte) |
 | Solid | [`@algoux/standard-ranklist-renderer-component-solid`](https://www.npmjs.com/package/@algoux/standard-ranklist-renderer-component-solid) |
+| Svelte | [`@algoux/standard-ranklist-renderer-component-svelte`](https://www.npmjs.com/package/@algoux/standard-ranklist-renderer-component-svelte) |
 
 ## 应用场景
 
