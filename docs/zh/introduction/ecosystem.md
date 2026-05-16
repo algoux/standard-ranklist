@@ -43,7 +43,17 @@ const myRanklist: srk.Ranklist = { ... };
 
 **仓库：** [algoux/standard-ranklist-renderer-component](https://github.com/algoux/standard-ranklist-renderer-component)
 
-srk 的 Web 渲染组件，可以用它渲染榜单。它已被用于：
+srk 的 Web 渲染组件包集合，面向 React、Vue、Angular、Solid 和 Svelte 提供框架专用组件。
+
+<p aria-label="支持的框架：React、Vue、Angular、Solid、Svelte" style="display: flex; gap: 16px; align-items: center;">
+  <img src="/assets/framework-icons/react.svg" alt="React" width="28" height="28" />
+  <img src="/assets/framework-icons/vue.svg" alt="Vue" width="28" height="28" />
+  <img src="/assets/framework-icons/angular.svg" alt="Angular" width="24" height="24" />
+  <img src="/assets/framework-icons/solid.svg" alt="Solid" width="28" height="28" />
+  <img src="/assets/framework-icons/svelte.svg" alt="Svelte" width="24" height="24" />
+</p>
+
+它已被用于：
 
 - 过往多届 CCPC 官方榜单页面
 - RankLand

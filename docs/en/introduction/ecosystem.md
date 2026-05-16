@@ -43,7 +43,17 @@ const myRanklist: srk.Ranklist = { ... };
 
 **Repository:** [algoux/standard-ranklist-renderer-component](https://github.com/algoux/standard-ranklist-renderer-component)
 
-A web rendering component for srk that renders ranklists. It has been used in:
+A set of web rendering component packages for srk ranklists, available for React, Vue, Angular, Solid, and Svelte.
+
+<p aria-label="Supported frameworks: React, Vue, Angular, Solid, Svelte" style="display: flex; gap: 16px; align-items: center;">
+  <img src="/assets/framework-icons/react.svg" alt="React" width="28" height="28" />
+  <img src="/assets/framework-icons/vue.svg" alt="Vue" width="28" height="28" />
+  <img src="/assets/framework-icons/angular.svg" alt="Angular" width="24" height="24" />
+  <img src="/assets/framework-icons/solid.svg" alt="Solid" width="28" height="28" />
+  <img src="/assets/framework-icons/svelte.svg" alt="Svelte" width="24" height="24" />
+</p>
+
+It has been used in:
 
 - Multiple past editions of the CCPC official ranklist pages
 - RankLand

@@ -7,7 +7,7 @@ The srk ecosystem provides a suite of tools around the data format specification
 | Project | Purpose | npm Package |
 |---------|---------|-------------|
 | [Standard Ranklist](https://github.com/algoux/standard-ranklist) | Spec definition, types, and Schema | `@algoux/standard-ranklist` |
-| [Renderer Component](https://github.com/algoux/standard-ranklist-renderer-component) | Web rendering component | `@algoux/standard-ranklist-renderer-component` |
+| [Renderer Component](https://github.com/algoux/standard-ranklist-renderer-component) | Web rendering components | [Renderer Component](/en/ecosystem/renderer) |
 | [Utils](https://github.com/algoux/standard-ranklist-utils) | Utility library | `@algoux/standard-ranklist-utils` |
 | [Convert-to](https://github.com/algoux/standard-ranklist-convert-to) | Format conversion tool | `@algoux/standard-ranklist-convert-to` |
 
@@ -20,7 +20,7 @@ srk → Renderer Component → Your Application
 ```
 
 1. Prepare srk data or implement an API that outputs srk
-2. Install and use the Renderer component in your web application
+2. Use the Renderer Component in your web application
 3. Pass srk data to the component for rendering
 
 ### Scenario 2: Exporting to Other Platform Formats
