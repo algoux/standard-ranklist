@@ -4,11 +4,11 @@ The srk ecosystem provides a suite of tools around the data format specification
 
 ## Ecosystem Projects
 
-| Project | Purpose | npm Package |
-|---------|---------|-------------|
+| Project | Purpose | Package |
+|---------|---------|---------|
 | [Standard Ranklist](https://github.com/algoux/standard-ranklist) | Spec definition, types, and Schema | `@algoux/standard-ranklist` |
 | [Renderer Component](https://github.com/algoux/standard-ranklist-renderer-component) | Web rendering components | [Renderer Component](/en/ecosystem/renderer) |
-| [Utils](https://github.com/algoux/standard-ranklist-utils) | Utility library | `@algoux/standard-ranklist-utils` |
+| [Utils](https://github.com/algoux/standard-ranklist-utils) | Utility library for JavaScript/TypeScript, Python, and Go | [Utils Library](/en/ecosystem/utils) |
 | [Convert-to](https://github.com/algoux/standard-ranklist-convert-to) | Format conversion tool | `@algoux/standard-ranklist-convert-to` |
 
 ## Typical Workflow Examples

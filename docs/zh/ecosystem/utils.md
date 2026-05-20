@@ -2,7 +2,17 @@
 
 ## 简介
 
-[Standard Ranklist Utils](https://github.com/algoux/standard-ranklist-utils) 是一个实用工具库，提供 srk 数据处理的常用功能。
+[Standard Ranklist Utils](https://github.com/algoux/standard-ranklist-utils) 是一个实用工具库，提供 srk 数据处理的常用功能。它支持 JavaScript/TypeScript、Python 和 Go。
+
+## 包地址
+
+| 语言 | 平台 | 包 |
+|------|------|----|
+| JavaScript / TypeScript | npm | [`@algoux/standard-ranklist-utils`](https://www.npmjs.com/package/@algoux/standard-ranklist-utils) |
+| Python | PyPI | [`algoux-standard-ranklist-utils`](https://pypi.org/project/algoux-standard-ranklist-utils/) |
+| Go | Go modules | [`github.com/algoux/standard-ranklist-utils/go`](https://pkg.go.dev/github.com/algoux/standard-ranklist-utils/go) |
+
+项目仓库：[algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
 
 ## 主要功能
 
@@ -18,6 +28,4 @@
 
 ## 使用方式
 
-请参阅项目仓库获取安装和 API 文档：
-
-→ [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
+请参阅各语言包页面和项目仓库获取安装与 API 文档。

@@ -2,7 +2,17 @@
 
 ## Introduction
 
-[Standard Ranklist Utils](https://github.com/algoux/standard-ranklist-utils) is a utility library providing common srk data processing functions.
+[Standard Ranklist Utils](https://github.com/algoux/standard-ranklist-utils) is a utility library providing common srk data processing functions. It is available for JavaScript/TypeScript, Python, and Go.
+
+## Packages
+
+| Language | Registry | Package |
+|----------|----------|---------|
+| JavaScript / TypeScript | npm | [`@algoux/standard-ranklist-utils`](https://www.npmjs.com/package/@algoux/standard-ranklist-utils) |
+| Python | PyPI | [`algoux-standard-ranklist-utils`](https://pypi.org/project/algoux-standard-ranklist-utils/) |
+| Go | Go modules | [`github.com/algoux/standard-ranklist-utils/go`](https://pkg.go.dev/github.com/algoux/standard-ranklist-utils/go) |
+
+Repository: [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
 
 ## Key Features
 
@@ -18,6 +28,4 @@
 
 ## Usage
 
-Refer to the project repository for installation and API documentation:
-
-→ [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
+Refer to the package pages and project repository for installation and API documentation.

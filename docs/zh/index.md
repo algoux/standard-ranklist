@@ -16,7 +16,7 @@ features:
     details: 统一描述 ICPC、OI 等各类竞赛榜单数据
   - icon: 🔌
     title: 工具链生态
-    details: 使用渲染组件和实用工具，快速处理数据或构建应用
+    details: 使用渲染组件，以及 JavaScript/TypeScript、Python 或 Go 工具库，快速处理数据或构建应用
   - icon: 🌍
     title: 开放平台
     details: 通过 RankLand 数据分发平台，共建开放算竞生态

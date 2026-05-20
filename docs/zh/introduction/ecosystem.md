@@ -64,7 +64,7 @@ srk 的 Web 渲染组件包集合，面向 React、Vue、Angular、Solid 和 Sve
 
 **仓库：** [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
 
-srk 实用工具库，提供 srk 数据处理的常用功能：
+srk 实用工具库，提供 srk 数据处理的常用功能，并提供 JavaScript/TypeScript、Python 和 Go 三种语言包：
 
 - 数据验证
 - 排序和计算

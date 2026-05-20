@@ -64,7 +64,7 @@ It has been used in:
 
 **Repository:** [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
 
-A utility library for srk that provides common data processing functions:
+A utility library for srk that provides common data processing functions, with packages for JavaScript/TypeScript, Python, and Go:
 
 - Data validation
 - Sorting and computation
