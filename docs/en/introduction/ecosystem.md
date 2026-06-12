@@ -97,11 +97,11 @@ For developers, many scenarios are well-suited for the srk ecosystem, such as:
 
 ### RankLand
 
-**URL:** [https://rl.algoux.org/](https://rl.algoux.org/)
+**URL:** [https://rl.algoux.cn/](https://rl.algoux.cn/)
 
 RankLand is a data distribution platform built on srk. You can easily:
 
 - Browse officially maintained and community-contributed contest ranklist data from past years
-- Debug srk data online via the [Playground](https://rl.algoux.org/playground)
+- Debug srk data online via the [Playground](https://rl.algoux.cn/playground)
 - Connect your managed contests to receive stable, reliable live external ranklist distribution and data archiving services <Badge type="warning" text="Beta" />
 - Use the Kessoku Series suite to provide live broadcast directing capabilities for your contests, greatly enriching the competition experience <Badge type="warning" text="Beta" />

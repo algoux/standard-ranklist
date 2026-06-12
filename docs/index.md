@@ -12,7 +12,7 @@ hero:
       link: /zh/introduction/what-is-srk
     - theme: alt
       text: Playground
-      link: https://rl.algoux.org/playground
+      link: https://rl.algoux.cn/playground
 features:
   - icon: 📋
     title: Standardized Format

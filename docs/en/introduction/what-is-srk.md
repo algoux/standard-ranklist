@@ -21,7 +21,7 @@ The drawbacks of disparate data formats become apparent — we often need to wri
 
 Think of srk as the "universal interchange standard" for ranklist data. We aim to build it as part of the foundational infrastructure for the competitive programming ecosystem. This allows more community contributors to focus on higher-level creativity, avoiding repetitive low-level work and enjoying the benefits of open collaboration.
 
-srk has been initiated and maintained by the algoUX team since 2019. A data distribution platform called [RankLand](https://rl.algoux.org/) has been built around it, making it easy for the community to share and consume srk data. The relationship between srk and RankLand is like that between git and GitHub.
+srk has been initiated and maintained by the algoUX team since 2019. A data distribution platform called [RankLand](https://rl.algoux.cn/) has been built around it, making it easy for the community to share and consume srk data. The relationship between srk and RankLand is like that between git and GitHub.
 
 As of 2026, the platform hosts hundreds of srk datasets maintained by the algoUX team, along with dozens of community contributions. Advanced features such as "self-service contest hosting" and "live broadcast director suite" are gradually being opened to all users.
 

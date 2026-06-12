@@ -97,11 +97,11 @@ srk 实用工具库，提供 srk 数据处理的常用功能，并提供 JavaScr
 
 ### RankLand
 
-**地址：** [https://rl.algoux.org/](https://rl.algoux.org/)
+**地址：** [https://rl.algoux.cn/](https://rl.algoux.cn/)
 
 RankLand 是基于 srk 的数据分发平台。你可以轻松地：
 
 - 浏览官方维护和社区贡献的历年竞赛榜单数据
-- 通过 [Playground](https://rl.algoux.org/playground) 在线调试 srk 数据
+- 通过 [Playground](https://rl.algoux.cn/playground) 在线调试 srk 数据
 - 接入你管理的比赛，获得稳定可靠的实时外榜分发服务和数据归档服务 <Badge type="warning" text="内测" />
 - 使用 Kessoku Series 套件，为你的比赛提供直播导播能力，极大丰富比赛体验 <Badge type="warning" text="内测" />

@@ -103,7 +103,7 @@
 
 将上面的 JSON 复制到 srk 在线 Playground，即可实时预览渲染效果：
 
-**👉 [打开 Playground](https://rl.algoux.org/playground)**
+**👉 [打开 Playground](https://rl.algoux.cn/playground)**
 
 在 Playground 中你可以：
 

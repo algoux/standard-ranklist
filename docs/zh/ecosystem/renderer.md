@@ -27,14 +27,14 @@
 Renderer 组件已被广泛应用于：
 
 - 过往多届 CCPC 官方榜单页面
-- [RankLand](https://rl.algoux.org/) 平台的榜单展示
+- [RankLand](https://rl.algoux.cn/) 平台的榜单展示
 - Kessoku Series 直播导播套件
 - 其他社区开发的竞赛相关应用
 
 ## 在线预览
 
 ::: tip 在线体验
-最快的体验方式是访问 [RankLand Playground](https://rl.algoux.org/playground)，无需安装任何依赖即可看到 Renderer 的渲染效果。
+最快的体验方式是访问 [RankLand Playground](https://rl.algoux.cn/playground)，无需安装任何依赖即可看到 Renderer 的渲染效果。
 :::
 
 如需查看包详情和发布记录，请访问项目仓库：

@@ -27,14 +27,14 @@
 The Renderer component has been widely used in:
 
 - Multiple past editions of the CCPC official ranklist pages
-- [RankLand](https://rl.algoux.org/) platform's ranklist display
+- [RankLand](https://rl.algoux.cn/) platform's ranklist display
 - Kessoku Series live broadcast directing suite
 - Other community-developed contest-related applications
 
 ## Preview
 
 ::: tip Online Preview
-The fastest way to experience it is to visit the [RankLand Playground](https://rl.algoux.org/playground) — no installation needed to see the Renderer in action.
+The fastest way to experience it is to visit the [RankLand Playground](https://rl.algoux.cn/playground) — no installation needed to see the Renderer in action.
 :::
 
 For package details and release notes, see the project repository:

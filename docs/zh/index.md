@@ -9,7 +9,7 @@ hero:
       link: /zh/introduction/what-is-srk
     - theme: alt
       text: 在线调试
-      link: https://rl.algoux.org/playground
+      link: https://rl.algoux.cn/playground
 features:
   - icon: 📋
     title: 标准化格式

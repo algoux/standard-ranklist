@@ -31,7 +31,7 @@ export default defineConfig({
             text: 'Spec',
             link: 'https://github.com/algoux/standard-ranklist/blob/master/specs/README.md',
           },
-          { text: 'Playground', link: 'https://rl.algoux.org/playground' },
+          { text: 'Playground', link: 'https://rl.algoux.cn/playground' },
         ],
         lastUpdated: {
           text: '上次更新',
@@ -63,7 +63,7 @@ export default defineConfig({
         text: 'Spec',
         link: 'https://github.com/algoux/standard-ranklist/blob/master/specs/README.md',
       },
-      { text: 'Playground', link: 'https://rl.algoux.org/playground' },
+      { text: 'Playground', link: 'https://rl.algoux.cn/playground' },
     ],
 
     sidebar: {
