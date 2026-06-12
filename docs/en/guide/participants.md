@@ -74,6 +74,7 @@ Each member in `teamMembers` is an ExternalUser object:
 | Field | Description | Required |
 |-------|-------------|----------|
 | `name` | Member name | ✅ |
+| `role` | Member role, e.g., "teamMember", "captain", "coach" | ❌ |
 | `avatar` | Avatar | ❌ |
 | `link` | Personal page link | ❌ |
 

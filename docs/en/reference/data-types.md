@@ -180,6 +180,7 @@ Full result set, used for `Solution.result` (includes all SolutionResultLite val
 | `"TLE"` | Time Limit Exceeded |
 | `"MLE"` | Memory Limit Exceeded |
 | `"OLE"` | Output Limit Exceeded |
+| `"IDLE"` | Idleness limit exceeded |
 | `"RTE"` | Runtime Error |
 | `"NOUT"` | No Output |
 | `"CE"` | Compilation Error |

@@ -200,6 +200,7 @@ Includes all values from [SolutionResultLite](#solutionresultlite) plus:
 | `"TLE"` | **Time Limit Exceeded** |
 | `"MLE"` | **Memory Limit Exceeded** |
 | `"OLE"` | **Output Limit Exceeded** |
+| `"IDLE"` | **Idleness limit exceeded** |
 | `"RTE"` | **Runtime Error** |
 | `"NOUT"` | **No Output** |
 | `"CE"` | **Compilation Error** |
@@ -315,6 +316,7 @@ A reference to an external user, typically used for team members.
 | Field | Type | Required | Default | Description |
 |-------|------|----------|---------|-------------|
 | `name` | [Text](data-types.md#text) | Yes | — | Username or display name |
+| `role` | `string` | No | Ignored by renderer | Role |
 | `avatar` | [Image](data-types.md#image) | No | Ignored by renderer | User avatar image |
 | `link` | `string` | No | Ignored by renderer | URL to the user's profile |
 

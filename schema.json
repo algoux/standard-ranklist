@@ -322,6 +322,10 @@
           "$ref": "#/definitions/Text",
           "description": "Username"
         },
+        "role": {
+          "type": "string",
+          "description": "Role"
+        },
         "avatar": {
           "$ref": "#/definitions/Image",
           "description": "User avatar"
@@ -481,6 +485,7 @@
             "TLE",
             "MLE",
             "OLE",
+            "IDLE",
             "RTE",
             "NOUT",
             "CE",
@@ -488,7 +493,7 @@
           ]
         }
       ],
-      "description": "Solution result full preset.\n'WA' means 'Wrong Answer'.\n'PE' means 'Presentation Error'.\n'TLE' means 'Time Limit Exceeded'.\n'MLE' means 'Memory Limit Exceeded'.\n'OLE' means 'Output Limit Exceeded'.\n'RTE' means 'Runtime Error'.\n'NOUT' means 'No Output'.\n'CE' means 'Compilation error'.\n'UKE' means 'Unknown Error'."
+      "description": "Solution result full preset.\n'WA' means 'Wrong Answer'.\n'PE' means 'Presentation Error'.\n'TLE' means 'Time Limit Exceeded'.\n'MLE' means 'Memory Limit Exceeded'.\n'OLE' means 'Output Limit Exceeded'.\n'IDLE' means 'Idleness limit exceeded'.\n'RTE' means 'Runtime Error'.\n'NOUT' means 'No Output'.\n'CE' means 'Compilation error'.\n'UKE' means 'Unknown Error'."
     },
     "SolutionResultCustom": {
       "type": "string",

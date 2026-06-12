@@ -149,6 +149,16 @@ export interface ExternalUser {
   name: Text;
 
   /**
+   * Role.
+   * @defaultValue Ignored by renderer.
+   * @example
+   * 'teamMember'
+   * 'captain'
+   * 'coach'
+   */
+  role?: string;
+
+  /**
    * User avatar.
    * @defaultValue Ignored by renderer.
    */
@@ -277,6 +287,7 @@ export type SolutionResultLite = 'FB' | 'AC' | 'RJ' | '?' | null;
  * 'TLE' means "Time Limit Exceeded".
  * 'MLE' means "Memory Limit Exceeded".
  * 'OLE' means "Output Limit Exceeded".
+ * 'IDLE' means "Idleness limit exceeded".
  * 'RTE' means "Runtime Error".
  * 'NOUT' means "No Output".
  * 'CE' means "Compilation error".
@@ -289,6 +300,7 @@ export type SolutionResultFull =
   | 'TLE'
   | 'MLE'
   | 'OLE'
+  | 'IDLE'
   | 'RTE'
   | 'NOUT'
   | 'CE'

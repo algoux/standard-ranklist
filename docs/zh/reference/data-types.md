@@ -180,6 +180,7 @@ URL 字符串，建议使用绝对 URL。
 | `"TLE"` | Time Limit Exceeded |
 | `"MLE"` | Memory Limit Exceeded |
 | `"OLE"` | Output Limit Exceeded |
+| `"IDLE"` | Idleness limit exceeded |
 | `"RTE"` | Runtime Error |
 | `"NOUT"` | No Output |
 | `"CE"` | Compilation Error |
