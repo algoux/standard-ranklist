@@ -21,6 +21,7 @@ srk is currently in the `0.x` stage, and the API is considered **unstable**:
 
 | Version | Major Changes |
 |---------|---------------|
+| 0.3.13 | Added `ExternalUser.role` field and `SolutionResultFull` enum `IDLE` |
 | 0.3.12 | Added `RelativePath` image type |
 | 0.3.11 | Added `photo` and `location` user fields |
 | 0.3.10 | Added JSON Schema |

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.13
+
+- Feature: add `ExternalUser.role` field
+- Feature: add new `SolutionResultFull` enum value `IDLE` (Idleness limit exceeded)
+
 ## 0.3.12
 
 - Feature: add `RelativePath` type for `Image` and rename `Base64` type to `DataURLBase64`

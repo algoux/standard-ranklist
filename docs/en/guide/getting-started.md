@@ -9,7 +9,7 @@ A valid srk file requires at least the following fields:
 ```json
 {
   "type": "general",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "contest": {
     "title": "My First Contest",
     "startAt": "2019-01-01T09:00:00+08:00",
@@ -34,7 +34,7 @@ Next, let's add ranking configuration and data for two teams:
 ```json{14-49}
 {
   "type": "general",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "contest": {
     "title": "My First Contest",
     "startAt": "2019-01-01T09:00:00+08:00",
@@ -126,7 +126,7 @@ import type * as srk from '@algoux/standard-ranklist'
 
 const ranklist: srk.Ranklist = {
   type: 'general',
-  version: '0.3.12',
+  version: '0.3.13',
   contest: {
     title: 'My Contest',
     startAt: '2019-01-01T09:00:00+08:00',

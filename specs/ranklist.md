@@ -47,7 +47,7 @@ The `_now` field is an [internal/runtime field](README.md#internal-fields-conven
 ```json
 {
   "type": "general",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "contest": {
     "title": "ACM ICPC World Finals 2018",
     "startAt": "2018-04-19T17:00:00+08:00",

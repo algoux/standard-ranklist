@@ -4,7 +4,7 @@ Standard Ranklist (srk) is a json format to describe many kinds of ranklists lik
 
 With srk, most of programming contest ranklists can be described in a standard format. It's easy to customize display style with different renderers and share everywhere.
 
-Version: `0.3.12` (updated on 2026-02-03)
+Version: `0.3.13` (updated on 2026-06-12)
 
 ## Files
 

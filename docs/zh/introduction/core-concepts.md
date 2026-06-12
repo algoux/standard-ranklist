@@ -15,7 +15,7 @@ srk 是**静态**榜单数据格式。也即：它是一份可以完整描述榜
 ```json
 {
   "type": "general",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "contest": { ... },
   "problems": [ ... ],
   "series": [ ... ],

@@ -15,7 +15,7 @@ An srk document is a JSON object (called a **Ranklist**) containing the followin
 ```json
 {
   "type": "general",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "contest": { ... },
   "problems": [ ... ],
   "series": [ ... ],

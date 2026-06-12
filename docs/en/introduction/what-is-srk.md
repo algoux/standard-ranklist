@@ -27,7 +27,7 @@ As of 2026, the platform hosts hundreds of srk datasets maintained by the algoUX
 
 ## Current Version
 
-- **Specification version:** `0.3.12`
+- **Specification version:** `0.3.13`
 - **Status:** Draft
 - **Versioning strategy:** Follows [Semantic Versioning 2.0.0](https://semver.org/)
 

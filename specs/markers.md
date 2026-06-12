@@ -131,7 +131,7 @@ A ranklist with markers:
 ```json
 {
   "type": "general",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "contest": {
     "title": "Example Contest",
     "startAt": "2024-01-01T09:00:00Z",
