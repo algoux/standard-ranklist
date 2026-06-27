@@ -60,6 +60,14 @@ srk 的 Web 渲染组件包集合，面向 React、Vue、Angular、Solid 和 Sve
 
 → 详见 [Renderer 渲染组件](/zh/ecosystem/renderer)
 
+### CLI
+
+**仓库：** [algoux/standard-ranklist-cli](https://github.com/algoux/standard-ranklist-cli)
+
+srk 命令行工具提供 `validate`、`diagnose`、`patch`、`preview` 和 `render` 等命令，适合在本地或 CI 中校验 srk 文件、检查常见数据问题、生成修复补丁、预览榜单效果，以及渲染静态页面等。
+
+→ 详见 [CLI 命令行工具](/zh/ecosystem/cli)
+
 ### Utils
 
 **仓库：** [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
@@ -91,7 +99,8 @@ srk 实用工具库，提供 srk 数据处理的常用功能，并提供 JavaScr
 
 1. **生产** — 增强你的 OJ、工具或服务，只需使用原生或经过转换的 srk 数据格式
 2. **渲染** — 使用 Renderer 组件在自己的应用中展示榜单
-3. **分析** — 使用 Utils 和 Convert-to 工具对榜单数据进行提取和批处理
+3. **检查与预览** — 使用 CLI 在本地或 CI 中校验、诊断、预览和渲染 srk 文件
+4. **分析** — 使用 Utils 和 Convert-to 工具对榜单数据进行提取和批处理
 
 ## 平台
 

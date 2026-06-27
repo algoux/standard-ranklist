@@ -16,7 +16,7 @@ features:
     details: Describe ICPC, OI, and other contest rankings in a unified format
   - icon: 🔌
     title: Toolchain Ecosystem
-    details: Use renderer components and JavaScript/TypeScript, Python, or Go utility libraries to quickly process data or build applications
+    details: Use the CLI, renderer components, and JavaScript/TypeScript, Python, or Go utility libraries to quickly check data or build applications
   - icon: 🌍
     title: Open Platform
     details: Collaborate on the open competitive programming ecosystem through the RankLand data distribution platform

@@ -94,6 +94,7 @@ export default defineConfig({
           items: [
             { text: 'Toolchain Overview', link: '/en/ecosystem/overview' },
             { text: 'Renderer Component', link: '/en/ecosystem/renderer' },
+            { text: 'CLI Tool', link: '/en/ecosystem/cli' },
             { text: 'Utils Library', link: '/en/ecosystem/utils' },
             { text: 'Format Conversion', link: '/en/ecosystem/convert-to' },
           ],
@@ -134,6 +135,7 @@ export default defineConfig({
           items: [
             { text: '工具链总览', link: '/zh/ecosystem/overview' },
             { text: 'Renderer 渲染组件', link: '/zh/ecosystem/renderer' },
+            { text: 'CLI 命令行工具', link: '/zh/ecosystem/cli' },
             { text: 'Utils 工具库', link: '/zh/ecosystem/utils' },
             { text: '格式转换工具', link: '/zh/ecosystem/convert-to' },
           ],

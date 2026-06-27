@@ -60,6 +60,14 @@ It has been used in:
 
 → See [Renderer Component](/en/ecosystem/renderer)
 
+### CLI
+
+**Repository:** [algoux/standard-ranklist-cli](https://github.com/algoux/standard-ranklist-cli)
+
+The srk command-line tool provides commands such as `validate`, `diagnose`, `patch`, `preview`, and `render`. It is useful for validating srk files locally or in CI, checking common data issues, generating fix patches, previewing ranklists, rendering static pages, and similar workflows.
+
+→ See [CLI Tool](/en/ecosystem/cli)
+
 ### Utils
 
 **Repository:** [algoux/standard-ranklist-utils](https://github.com/algoux/standard-ranklist-utils)
@@ -91,7 +99,8 @@ For developers, many scenarios are well-suited for the srk ecosystem, such as:
 
 1. **Production** — Enhance your OJ, tools, or services by using native or converted srk data
 2. **Rendering** — Use the Renderer component to display ranklists in your own applications
-3. **Analysis** — Use Utils and Convert-to tools to extract and batch-process ranklist data
+3. **Checking and Previewing** — Use the CLI to validate, diagnose, preview, and render srk files locally or in CI
+4. **Analysis** — Use Utils and Convert-to tools to extract and batch-process ranklist data
 
 ## Platform
 
