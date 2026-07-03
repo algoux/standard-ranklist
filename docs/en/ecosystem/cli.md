@@ -41,7 +41,7 @@ srk diagnose --format json srk.json
 srk diagnose --patch generated.patch.json srk.json
 ```
 
-`diagnose` finds semantic issues in srk data. Diagnostics findings themselves do not make the command fail.
+`diagnose` finds completeness and correctness issues in srk data. Diagnostics findings themselves do not make the command fail.
 
 ### Patch
 

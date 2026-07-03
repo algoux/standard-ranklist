@@ -41,7 +41,7 @@ srk diagnose --format json srk.json
 srk diagnose --patch generated.patch.json srk.json
 ```
 
-`diagnose` 用于发现 srk 数据中的语义问题。诊断结果本身不会让命令以失败状态退出。
+`diagnose` 用于发现 srk 数据中的完整性和正确性问题。诊断结果本身不会让命令以失败状态退出。
 
 ### 修补
 
