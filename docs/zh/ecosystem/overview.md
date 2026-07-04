@@ -27,19 +27,20 @@ srk → Renderer Component → 你的应用
 ### 场景 2：导出为其他平台格式
 
 ```
-srk → Convert-to → Codeforces Gym / Excel / VJ Replay
+srk → CLI convert / Convert-to → Codeforces Gym / Excel / VJ Replay
 ```
 
 1. 准备 srk 数据
-2. 使用 Convert-to 工具选择目标格式
+2. 使用 `srk convert` 或 Convert-to 工具选择目标格式
 3. 生成目标格式的文件
 
 ### 场景 3：维护和发布 srk 文件
 
 ```
-srk → CLI validate / diagnose / preview / render → CI / 静态页面
+srk → CLI validate / diagnose / convert / preview / render → CI / 静态页面 / 导出文件
 ```
 
 1. 使用 CLI 校验 srk 文件结构并发现常见数据问题
-2. 在本地浏览器预览榜单效果
-3. 渲染静态页面用于归档、发布或 PR Review
+2. 按需导出 Excel、VJudge Replay 或 Codeforces Gym Ghost 文件
+3. 在本地浏览器预览榜单效果
+4. 渲染静态页面用于归档、发布或 PR Review

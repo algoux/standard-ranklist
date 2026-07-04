@@ -2,7 +2,7 @@
 
 ## 简介
 
-[Standard Ranklist CLI](https://github.com/algoux/standard-ranklist-cli) 是面向 srk 文件的命令行工具，命令名为 `srk`。它适合在本地开发、数据维护和 CI 流程中完成校验、诊断、修补、浏览器预览和静态页面渲染等操作。
+[Standard Ranklist CLI](https://github.com/algoux/standard-ranklist-cli) 是面向 srk 文件的命令行工具，命令名为 `srk`。它适合在本地开发、数据维护和 CI 流程中完成校验、诊断、修补、格式转换、浏览器预览和静态页面渲染等操作。
 
 ## 安装
 
@@ -19,6 +19,7 @@ CLI 需要 Node.js `>=22`。
 | `validate` | 快速检查 srk 的 Schema 字段、类型、枚举值和格式 |
 | `diagnose` | 输出数据诊断报告，并可生成可自动修复问题的 `srk-patch` 文件 |
 | `patch` | 将 `srk-patch` 补丁应用到 srk |
+| `convert` | 将 srk 导出为 Excel、VJudge Replay 或 Codeforces Gym Ghost 文件 |
 | `preview` | 启动本地预览服务，在浏览器中查看单个 srk 文件或目录树 |
 | `render` | 将单个 srk 文件或目录渲染为静态 HTML，可用于归档、发布和预览页面 |
 
@@ -52,6 +53,16 @@ srk patch -o fixed.srk.json srk.json fix.patch.json
 srk patch --in-place srk.json fix.patch.json
 ```
 
+### 转换格式
+
+```bash
+srk convert excel srk.json -o ranklist.xlsx
+srk convert vjudge srk.json -o replay.xlsx
+srk convert gym srk.json -o ghost.dat
+```
+
+`convert` 会调用转换器生成目标格式的文件。
+
 ### 本地预览
 
 ```bash
@@ -79,4 +90,3 @@ srk render -o ./review-site --git-diff-base main --git-diff-head HEAD ./ranklist
 关于完整的参数说明和发布历史，请参考项目仓库：
 
 → [algoux/standard-ranklist-cli](https://github.com/algoux/standard-ranklist-cli)
-

@@ -22,6 +22,14 @@ More formats are being continuously added.
 
 ## Usage
 
-Refer to the project repository for installation and usage instructions:
+If you only need to export from files, use the conversion command built into the CLI:
+
+```bash
+srk convert excel srk.json -o ranklist.xlsx
+srk convert vjudge srk.json -o replay.xlsx
+srk convert gym srk.json -o ghost.dat
+```
+
+If you need to call converters from code, refer to the project repository for installation and usage instructions:
 
 → [algoux/standard-ranklist-convert-to](https://github.com/algoux/standard-ranklist-convert-to)

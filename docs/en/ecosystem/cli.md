@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[Standard Ranklist CLI](https://github.com/algoux/standard-ranklist-cli) is a command-line tool for srk files. Its executable name is `srk`, and it is designed for local development, data maintenance, and CI workflows that need validation, diagnostics, patching, browser previews, static HTML rendering, and similar operations.
+[Standard Ranklist CLI](https://github.com/algoux/standard-ranklist-cli) is a command-line tool for srk files. Its executable name is `srk`, and it is designed for local development, data maintenance, and CI workflows that need validation, diagnostics, patching, format conversion, browser previews, static HTML rendering, and similar operations.
 
 ## Installation
 
@@ -19,6 +19,7 @@ The CLI requires Node.js `>=22`.
 | `validate` | Quickly checks srk Schema fields, types, enum values, and formats |
 | `diagnose` | Prints a data diagnostics report and can generate an `srk-patch` file for auto-fixable issues |
 | `patch` | Applies an `srk-patch` file to srk |
+| `convert` | Exports srk to Excel, VJudge Replay, or Codeforces Gym Ghost files |
 | `preview` | Starts a local preview server for a single srk file or a directory tree |
 | `render` | Renders a single srk file or a directory into static HTML for archives, publishing, and preview pages |
 
@@ -51,6 +52,16 @@ srk patch -o fixed.srk.json srk.json fix.patch.json
 # Patch and overwrite the input file
 srk patch --in-place srk.json fix.patch.json
 ```
+
+### Convert Formats
+
+```bash
+srk convert excel srk.json -o ranklist.xlsx
+srk convert vjudge srk.json -o replay.xlsx
+srk convert gym srk.json -o ghost.dat
+```
+
+`convert` will invoke the converter to generate the target format file.
 
 ### Preview Locally
 

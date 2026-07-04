@@ -22,6 +22,14 @@
 
 ## 使用方式
 
-请参阅项目仓库获取安装和使用说明：
+如果只需要从文件导出，可以直接使用 CLI 中内置的转换命令：
+
+```bash
+srk convert excel srk.json -o ranklist.xlsx
+srk convert vjudge srk.json -o replay.xlsx
+srk convert gym srk.json -o ghost.dat
+```
+
+如果需要在代码中调用转换器，请参阅项目仓库获取安装和使用说明：
 
 → [algoux/standard-ranklist-convert-to](https://github.com/algoux/standard-ranklist-convert-to)

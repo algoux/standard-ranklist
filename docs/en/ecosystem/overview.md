@@ -27,19 +27,20 @@ srk → Renderer Component → Your Application
 ### Scenario 2: Exporting to Other Platform Formats
 
 ```
-srk → Convert-to → Codeforces Gym / Excel / VJ Replay
+srk → CLI convert / Convert-to → Codeforces Gym / Excel / VJ Replay
 ```
 
 1. Prepare srk data
-2. Use the Convert-to tool to select the target format
+2. Use `srk convert` or the Convert-to tool to select the target format
 3. Generate the target format file
 
 ### Scenario 3: Maintaining and Publishing srk Files
 
 ```
-srk → CLI validate / diagnose / preview / render → CI / Static Pages
+srk → CLI validate / diagnose / convert / preview / render → CI / Static Pages / Exported Files
 ```
 
 1. Use the CLI to validate srk file structure and find common data issues
-2. Preview ranklists locally in the browser
-3. Render static pages for archives, publishing, or PR review
+2. Export Excel, VJudge Replay, or Codeforces Gym Ghost files when needed
+3. Preview ranklists locally in the browser
+4. Render static pages for archives, publishing, or PR review
