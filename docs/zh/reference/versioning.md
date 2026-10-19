@@ -21,6 +21,7 @@ srk 遵循 [语义化版本 2.0.0](https://semver.org/lang/zh-CN/)，版本号�
 
 | 版本 | 主要变更 |
 |------|---------|
+| 0.3.14 | 为 ICPC 排序器添加 `extendedAlgorithms` 派生算法配置 |
 | 0.3.13 | 添加 `ExternalUser.role` 字段和 `SolutionResultFull` 枚举 `IDLE` |
 | 0.3.12 | 添加 `RelativePath` 图片类型 |
 | 0.3.11 | 添加 `photo` 和 `location` 用户字段 |

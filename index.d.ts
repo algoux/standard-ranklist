@@ -4,7 +4,7 @@ Copyright (c) algoUX. All rights reserved.
 ***************************************************************************** */
 
 export type Type = 'general';
-export type Version = '0.3.13';
+export type Version = '0.3.14';
 
 //#region common
 
@@ -713,6 +713,7 @@ export interface SorterICPC extends SorterBase {
      *
      * Once one or more algorithm object fields are specified, they take effect.
      * Multiple derived algorithms can be specified at the same time.
+     * @since 0.3.14
      */
     extendedAlgorithms?: SorterICPCExtendedAlgorithm[];
   };

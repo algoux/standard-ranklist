@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://unpkg.com/@algoux/standard-ranklist@0.3.13/schema.json",
+  "$id": "https://unpkg.com/@algoux/standard-ranklist@0.3.14/schema.json",
   "title": "Standard Ranklist Schema",
   "description": "Standard Ranklist",
   "type": "object",
@@ -1152,7 +1152,8 @@
               "items": {
                 "$ref": "#/definitions/SorterICPCExtendedAlgorithm"
               },
-              "description": "Extended algorithms for ICPC sorter.\nOnce one or more algorithm object fields are specified, they take effect.\nMultiple derived algorithms can be specified at the same time."
+              "description": "Extended algorithms for ICPC sorter.\nOnce one or more algorithm object fields are specified, they take effect.\nMultiple derived algorithms can be specified at the same time.",
+              "since": "0.3.14"
             }
           },
           "additionalProperties": false,

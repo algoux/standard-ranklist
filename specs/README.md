@@ -8,7 +8,7 @@ srk is designed primarily for ICPC-style and OI-style programming contests but i
 
 ## Status
 
-- **Specification Version:** 0.3.13
+- **Specification Version:** 0.3.14
 - **Status:** Draft
 - **Last Updated:** 2026-06-12
 

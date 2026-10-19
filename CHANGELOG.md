@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.14
+
+- Feature: add `extendedAlgorithms` for ICPC sorter extended algorithms, which supported `CCPC26` algorithm
+
 ## 0.3.13
 
 - Feature: add `ExternalUser.role` field
