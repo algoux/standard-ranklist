@@ -609,6 +609,54 @@ export interface Marker {
 
 export interface SorterBase {}
 
+export interface SorterICPCExtendedAlgorithmCCPC26 {
+  algorithm: 'CCPC26';
+  config: {
+    /**
+     * The accepted users threshold for problem reveal.
+     * 
+     * Multiple threshold conditions can be specified at the same time.
+     * The problem will be revealed if any one of the conditions is satisfied.
+     */
+    problemRevealAcceptedThreshold: {
+      /**
+       * The number of accepted users threshold (greater than or equal to).
+       * @example 50
+       */
+      count?: number;
+      
+      /**
+       * The ratio of accepted users threshold (greater than or equal to).
+       * @example 0.2
+       */
+      ratio?: number;
+
+      /**
+       * The rounding method for ratio calculation.
+       * @defaultValue 'floor'
+       */
+      rounding?: 'floor' | 'ceil' | 'round';
+
+      /**
+       * Specify how to count the denominator (total user number) for ratio calculation.
+       * If the value is 'all', the denominator will be the total user number.
+       * If the value is 'submitted', the denominator will be number of users which have submitted at least one solution.
+       * If the value is 'scored', the denominator will be number of users which have greater than zero score.
+       * @defaultValue 'all'
+       */
+      denominator?: 'all' | 'submitted' | 'scored';
+
+      /**
+       * Whether to include official users only for count/ratio calculations.
+       * @defaultValue false
+       */
+      includeOfficialOnly?: boolean;
+    };
+  };
+}
+
+export type SorterICPCExtendedAlgorithm = SorterICPCExtendedAlgorithmCCPC26;
+
 export interface SorterICPC extends SorterBase {
   algorithm: 'ICPC';
 
@@ -659,6 +707,14 @@ export interface SorterICPC extends SorterBase {
      * @since 0.3.7
      */
     rankingTimeRounding?: 'floor' | 'ceil' | 'round';
+
+    /**
+     * Extended algorithms for ICPC sorter.
+     *
+     * Once one or more algorithm object fields are specified, they take effect.
+     * Multiple derived algorithms can be specified at the same time.
+     */
+    extendedAlgorithms?: SorterICPCExtendedAlgorithm[];
   };
 }
 

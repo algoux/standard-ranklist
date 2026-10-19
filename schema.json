@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://unpkg.com/@algoux/standard-ranklist@0.3.10/schema.json",
+  "$id": "https://unpkg.com/@algoux/standard-ranklist@0.3.13/schema.json",
   "title": "Standard Ranklist Schema",
   "description": "Standard Ranklist",
   "type": "object",
@@ -190,11 +190,17 @@
     },
     "RelativePath": {
       "type": "string",
-      "description": "The path relative to bundled root"
+      "description": "The path relative to bundled root",
+      "examples": [
+        "assets/image.png"
+      ]
     },
     "DataURLBase64": {
       "type": "string",
-      "description": "Data URL with base64 encoding"
+      "description": "Data URL with base64 encoding",
+      "examples": [
+        "data:image/png;base64,..."
+      ]
     },
     "Image": {
       "anyOf": [
@@ -278,16 +284,19 @@
             "dark"
           ]
         }
-      ]
+      ],
+      "description": "Theme color. If only one color (for light theme) provided, the color for dark theme will be same as the light."
     },
     "Style": {
       "type": "object",
       "properties": {
         "textColor": {
-          "$ref": "#/definitions/ThemeColor"
+          "$ref": "#/definitions/ThemeColor",
+          "description": "Text color.\nThe default value is determined by renderer."
         },
         "backgroundColor": {
-          "$ref": "#/definitions/ThemeColor"
+          "$ref": "#/definitions/ThemeColor",
+          "description": "Background color.\nThe default value is determined by renderer."
         }
       },
       "additionalProperties": false
@@ -324,7 +333,12 @@
         },
         "role": {
           "type": "string",
-          "description": "Role"
+          "description": "Role",
+          "examples": [
+            "teamMember",
+            "captain",
+            "coach"
+          ]
         },
         "avatar": {
           "$ref": "#/definitions/Image",
@@ -516,6 +530,7 @@
                 "TLE",
                 "MLE",
                 "OLE",
+                "IDLE",
                 "RTE",
                 "NOUT",
                 "CE",
@@ -606,7 +621,7 @@
         "bronze",
         "iron"
       ],
-      "description": "Rank series segment style preset"
+      "description": "Rank series segment style preset. The style value will be determined by renderer."
     },
     "RankSeriesSegment": {
       "type": "object",
@@ -689,7 +704,7 @@
         "options"
       ],
       "additionalProperties": false,
-      "description": "A series preset which is used to generate rank by unique user field value.\nThis preset will pick a subset of users with different specified user field values to assign rank in scending order.\nIf multiple users have the same value of the field, only the first one will be picked."
+      "description": "A series preset which is used to generate rank by unique user field value.\nThis preset will pick a subset of users with different specified user field values to assign rank in ascending order.\nIf multiple users have the same value of the field, only the first one will be picked."
     },
     "RankSeriesRulePresetICPC": {
       "type": "object",
@@ -742,6 +757,7 @@
                 },
                 "noTied": {
                   "type": "boolean",
+                  "default": false,
                   "description": "Whether force no tied for rank segments calculation.\nFor example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate."
                 }
               },
@@ -771,6 +787,7 @@
                 },
                 "noTied": {
                   "type": "boolean",
+                  "default": false,
                   "description": "Whether force no tied for rank segments calculation.\nFor example, if the tied ranks are [1, 1, 3, 4] and the option is true, the ranks will be fixed to [1, 2, 3, 4] then calculate."
                 }
               },
@@ -813,7 +830,7 @@
                 },
                 "byMarker": {
                   "type": "string",
-                  "description": "The marker ID to filter users.\nIf multiple markers are specified, the user will be included only if all markers are satisfied.",
+                  "description": "The marker ID to filter users.\nIf specified, only users with this marker (exact match) will be included.",
                   "since": "0.3.9"
                 }
               },
@@ -904,7 +921,7 @@
         "tries": {
           "type": "integer",
           "minimum": 0,
-          "description": "The tries count"
+          "description": "The tries count.\nFor ICPC-style contests, this counts effective submissions up to and including the first accepted solution. What constitutes an \"effective\" submission is determined by the sorter's noPenaltyResults configuration — submissions whose results appear in noPenaltyResults (except the accepted one itself) are not counted as effective tries."
         },
         "solutions": {
           "type": "array",
@@ -912,7 +929,7 @@
             "$ref": "#/definitions/Solution"
           },
           "default": [],
-          "description": "Solutions for this problem (sorted by submission time in ascending order).\nIf no solutions provided, auto-sort feature will be disabled."
+          "description": "Solutions for this problem (sorted by submission time in ascending order).\nMay include all submissions regardless of result type.\nThis array is not limited to effective submissions only.\nIf no solutions provided, auto-sort feature will be disabled."
         }
       },
       "required": [
@@ -959,7 +976,7 @@
         "purple",
         "pink"
       ],
-      "description": "Marker style preset"
+      "description": "Marker style preset. The style value will be determined by renderer."
     },
     "Marker": {
       "type": "object",
@@ -991,6 +1008,80 @@
       ],
       "additionalProperties": false,
       "description": " Marker to mark the specified user"
+    },
+    "SorterICPCExtendedAlgorithmCCPC26": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "const": "CCPC26"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "problemRevealAcceptedThreshold": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "number",
+                  "description": "The number of accepted users threshold (greater than or equal to)",
+                  "examples": [
+                    50
+                  ]
+                },
+                "ratio": {
+                  "type": "number",
+                  "description": "The ratio of accepted users threshold (greater than or equal to)",
+                  "examples": [
+                    0.2
+                  ]
+                },
+                "rounding": {
+                  "type": "string",
+                  "enum": [
+                    "floor",
+                    "ceil",
+                    "round"
+                  ],
+                  "default": "floor",
+                  "description": "The rounding method for ratio calculation"
+                },
+                "denominator": {
+                  "type": "string",
+                  "enum": [
+                    "all",
+                    "submitted",
+                    "scored"
+                  ],
+                  "default": "all",
+                  "description": "Specify how to count the denominator (total user number) for ratio calculation.\nIf the value is 'all', the denominator will be the total user number.\nIf the value is 'submitted', the denominator will be number of users which have submitted at least one solution.\nIf the value is 'scored', the denominator will be number of users which have greater than zero score."
+                },
+                "includeOfficialOnly": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Whether to include official users only for count/ratio calculations"
+                }
+              },
+              "additionalProperties": false,
+              "description": "The accepted users threshold for problem reveal.\nMultiple threshold conditions can be specified at the same time.\nThe problem will be revealed if any one of the conditions is satisfied."
+            }
+          },
+          "required": [
+            "problemRevealAcceptedThreshold"
+          ],
+          "additionalProperties": false,
+          "description": "CCPC26 algorithm configuration"
+        }
+      },
+      "required": [
+        "algorithm",
+        "config"
+      ],
+      "additionalProperties": false,
+      "description": "CCPC26 extended algorithm for ICPC sorter"
+    },
+    "SorterICPCExtendedAlgorithm": {
+      "$ref": "#/definitions/SorterICPCExtendedAlgorithmCCPC26"
     },
     "SorterICPC": {
       "type": "object",
@@ -1055,6 +1146,13 @@
               "default": "floor",
               "description": "The rounding method of converting time unit to specified time precision when calculating rankings",
               "since": "0.3.7"
+            },
+            "extendedAlgorithms": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SorterICPCExtendedAlgorithm"
+              },
+              "description": "Extended algorithms for ICPC sorter.\nOnce one or more algorithm object fields are specified, they take effect.\nMultiple derived algorithms can be specified at the same time."
             }
           },
           "additionalProperties": false,
@@ -1076,7 +1174,6 @@
           "const": "score"
         },
         "config": {
-          "type": "object",
           "description": "Score sorter configuration"
         }
       },
